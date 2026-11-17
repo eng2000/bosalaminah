@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="منصة التمكين للمنح: منح دراسية ممولة وفرص عمل وتدريب للطلاب والخريجين العرب، مع فحص ذكي للأهلية وقوالب رسالة الحافز والتوصية وأسئلة المقابلات.">
+<meta property="og:title" content="منصة التمكين للمنح">
+<meta property="og:description" content="منح دراسية ممولة وفرص عمل وتدريب للشباب العربي في مكان واحد.">
+<meta property="og:type" content="website">
+<!-- بعد قبول موقعك في البرنامج الإعلاني، ضع هنا كود التفعيل الذي يعطيك إياه (سطر script واحد) -->
+<title>منصة التمكين للمنح</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Readex+Pro:wght@300;400;500;600&display=swap">
+<style>
+/* Layout concept: light, airy lavender canvas; centered hero with search as the main action; white cards with soft violet tints. */
+:root{
+  --bg:#FBFAFF; --surface:#FFFFFF; --soft:#F1EDFF; --soft-2:#E6DEFF; --ink:#1F1147; --muted:#645E7C; --line:#E4DFF5;
+  --brand:#6C47E0; --brand-ink:#FFFFFF; --brand-deep:#3A1F9C;
+  --accent:#FF8A4C; --accent-soft:#FFEDE2; --accent-ink:#8A3A0B;
+  --ok:#0B8A5F; --ok-soft:#DEF7EC; --warn:#B4470F;
+  --band:#1C0F47; --band-2:#2A1A63; --band-fg:#F4F1FF; --band-muted:#B9AFDD; --band-line:#3A2A78;
+  --shadow:0 1px 2px rgba(31,17,71,.05),0 10px 30px rgba(74,47,160,.08);
+  --shadow-lg:0 2px 4px rgba(31,17,71,.06),0 24px 60px rgba(74,47,160,.16);
+  --display:"Rubik","Readex Pro","Segoe UI",Tahoma,sans-serif;
+  --body:"Readex Pro","Segoe UI",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F0A21; --surface:#191232; --soft:#231946; --soft-2:#30235E; --ink:#EEEAFB; --muted:#A9A2C4; --line:#30265A;
+  --brand:#9B7DFF; --brand-ink:#130A33; --brand-deep:#CBBBFF;
+  --accent:#FF9D66; --accent-soft:#3A2218; --accent-ink:#FFC29E;
+  --ok:#4ADE9A; --ok-soft:#12332A; --warn:#FFA36B;
+  --band:#090516; --band-2:#191232; --band-fg:#F4F1FF; --band-muted:#B9AFDD; --band-line:#2A1F52;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.3); --shadow-lg:0 24px 60px rgba(0,0,0,.45); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F0A21; --surface:#191232; --soft:#231946; --soft-2:#30235E; --ink:#EEEAFB; --muted:#A9A2C4; --line:#30265A;
+  --brand:#9B7DFF; --brand-ink:#130A33; --brand-deep:#CBBBFF;
+  --accent:#FF9D66; --accent-soft:#3A2218; --accent-ink:#FFC29E;
+  --ok:#4ADE9A; --ok-soft:#12332A; --warn:#FFA36B;
+  --band:#090516; --band-2:#191232; --band-fg:#F4F1FF; --band-muted:#B9AFDD; --band-line:#2A1F52;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.3); --shadow-lg:0 24px 60px rgba(0,0,0,.45); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8;font-weight:400}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.35;color:var(--ink)}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{display:inline-block;align-self:center;font-size:.82rem;font-weight:500;color:var(--brand);background:var(--soft);padding:4px 16px;border-radius:999px}
+.sec{padding-block:80px}
+.sec-head{display:flex;flex-direction:column;gap:12px;max-width:680px;margin:0 auto 40px;text-align:center}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700}
+.sec-head p{color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 24px;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-brand,.btn-gold{background:var(--brand);color:var(--brand-ink);box-shadow:0 6px 18px rgba(108,71,224,.3)}
+.btn-brand:hover,.btn-gold:hover{box-shadow:0 10px 24px rgba(108,71,224,.4)}
+.btn-ghost{background:var(--surface);color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--line)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px 28px;flex-wrap:wrap;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1.2}
+.logo svg{width:40px;height:40px;flex:none}
+.logo .l-bg{fill:var(--brand)}.logo .l-fg{fill:var(--brand-ink)}.logo .l-dot{fill:var(--accent)}
+.logo small{display:block;font-family:var(--body);font-weight:400;font-size:.7rem;color:var(--muted)}
+.nav{display:flex;gap:2px;margin-inline:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav a{white-space:nowrap;text-decoration:none;padding:8px 14px;border-radius:10px;font-size:.93rem;font-weight:500;color:var(--muted)}
+.nav a:hover{color:var(--brand);background:var(--soft)}
+.top .btn{padding:9px 20px;font-size:.93rem}
+@media (max-width:1020px){.nav{order:3;flex-basis:100%;margin-inline:0}.top .btn{margin-inline-start:auto}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;text-align:center}
+.hero::before,.hero::after{content:"";position:absolute;width:150px;height:170px;background-image:radial-gradient(var(--soft-2) 2.5px,transparent 3px);background-size:22px 22px;z-index:0}
+.hero::before{inset-inline-end:2%;top:46%}
+.hero::after{inset-inline-start:3%;top:90px}
+.hero .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding-block:56px 0}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;max-width:17em;margin-top:18px;line-height:1.3}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero .lead{color:var(--muted);font-size:1.08rem;max-width:40em;margin-top:16px}
+.search{display:flex;gap:8px;margin-top:30px;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:7px;width:min(680px,100%);box-shadow:var(--shadow)}
+.search svg{width:20px;height:20px;flex:none;align-self:center;margin-inline-start:12px;stroke:var(--muted);fill:none;stroke-width:2}
+.search input{flex:1;min-width:0;background:transparent;border:0;padding:10px 8px}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none}
+.search:focus-within{border-color:var(--brand)}
+.quick{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;font-size:.88rem;color:var(--muted);align-items:center}
+.quick button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 14px;cursor:pointer;color:var(--ink)}
+.quick button:hover{border-color:var(--brand);color:var(--brand)}
+
+.show{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:end;width:min(900px,100%);margin-top:56px;padding:0 0 0;text-align:start}
+.show::before{content:"";position:absolute;inset-inline:8%;top:-34px;aspect-ratio:1;border-radius:50%;background:var(--soft);box-shadow:0 0 0 46px color-mix(in srgb,var(--soft) 45%,transparent);z-index:-1}
+.show-card{background:var(--surface);border:1px solid var(--line);border-radius:18px 18px 0 0;border-bottom:0;padding:20px 20px 26px;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:10px;min-width:0}
+.show-card.mid{padding-bottom:54px;align-items:center;text-align:center}
+.show-card small{font-size:.76rem;color:var(--muted)}
+.show-card b{font-family:var(--display);font-size:1.05rem}
+.ring{width:108px;height:108px;border-radius:50%;background:conic-gradient(var(--brand) 92%,var(--soft-2) 0);display:grid;place-items:center}
+.ring span{width:84px;height:84px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--brand)}
+.tick-row{display:flex;align-items:center;gap:8px;font-size:.86rem}
+.tick-row i{width:18px;height:18px;border-radius:50%;background:var(--ok-soft);flex:none;position:relative}
+.tick-row i::after{content:"";position:absolute;inset:5px 4px 6px 4px;border:2px solid var(--ok);border-top:0;border-inline-end:0;transform:rotate(-45deg)}
+.tick-row.todo i{background:var(--accent-soft)}.tick-row.todo i::after{border:0;inset:7px;border-radius:50%;background:var(--accent)}
+@media (prefers-reduced-motion:no-preference){
+  .show-card{animation:rise .7s cubic-bezier(.2,.8,.2,1) backwards}
+  .show-card.mid{animation-delay:.1s}.show-card:last-child{animation-delay:.2s}
+  @keyframes rise{from{translate:0 36px;opacity:.3}}
+}
+@media (max-width:760px){.show{grid-template-columns:minmax(0,1fr);width:min(320px,100%)}.show-card:not(.mid){display:none}.show::before{inset-inline:-6%}}
+
+/* Stats + features */
+.stats-sec{background:var(--surface);border-block:1px solid var(--line);position:relative;z-index:2}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;padding-block:26px}
+.stats div+div{border-inline-start:1px solid var(--line)}
+.stats b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;color:var(--brand);font-variant-numeric:tabular-nums}
+.stats span{font-size:.9rem;color:var(--muted)}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1020px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.feats{grid-template-columns:minmax(0,1fr)}}
+.feat{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.feat .ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);display:grid;place-items:center}
+.feat .ico svg{width:26px;height:26px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feat:nth-child(even) .ico{background:var(--soft)}.feat:nth-child(even) .ico svg{stroke:var(--brand)}
+.feat h3{font-size:1.12rem;font-weight:700}
+.feat p{font-size:.92rem;color:var(--muted)}
+.feat span{font-size:.88rem;font-weight:600;color:var(--brand);margin-top:auto}
+
+/* Scholarship card */
+.pass{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.pass:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.pass-top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--soft)}
+.code{font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.06em;color:var(--brand);background:var(--surface);border-radius:12px;min-width:56px;height:44px;display:grid;place-items:center;padding-inline:8px;box-shadow:var(--shadow)}
+.pass-top .dest{flex:1;min-width:0;line-height:1.4}
+.pass-top .dest small{display:block;font-size:.72rem;color:var(--muted)}
+.pass-top .dest b{font-weight:600;font-size:.98rem}
+.save{border:0;background:var(--surface);width:38px;height:38px;border-radius:50%;cursor:pointer;display:grid;place-items:center;flex:none;color:var(--muted)}
+.save:hover{color:var(--brand)}
+.save svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.save[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
+.save[aria-pressed="true"] svg{fill:currentColor}
+.tear{display:none}
+.pass-body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pass-body h3{font-size:1.1rem;font-weight:700;line-height:1.5}
+.pass-body .org{font-size:.8rem;color:var(--muted);direction:ltr;text-align:end;unicode-bidi:plaintext}
+.pass-body p{font-size:.92rem;color:var(--muted)}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.88rem;margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.meta dt{color:var(--muted)}
+.meta dd{font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:.76rem;font-weight:500;padding:2px 11px;border-radius:999px;background:var(--soft);color:var(--brand-deep)}
+.pill.full{background:var(--ok-soft);color:var(--ok)}
+.pill.gold{background:var(--accent-soft);color:var(--accent-ink)}
+.go{font-weight:600;color:var(--brand);text-decoration:none;font-size:.92rem;background:var(--soft);border-radius:10px;padding:9px 14px;text-align:center;transition:background .15s,color .15s}
+.go:hover{background:var(--brand);color:var(--brand-ink)}
+
+/* Quiz */
+.quiz-sec{background:var(--soft)}
+.quiz-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:center}
+.quiz-side .sec-head{text-align:start;margin-inline:0}
+.quiz-side .eyebrow{align-self:flex-start;background:var(--surface)}
+.quiz-side ol{display:grid;gap:14px;margin-top:28px;counter-reset:s}
+.quiz-side li{display:flex;gap:14px;align-items:center;counter-increment:s;color:var(--ink)}
+.quiz-side li::before{content:counter(s);font-family:var(--display);font-weight:700;color:var(--brand);background:var(--surface);width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;box-shadow:var(--shadow)}
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);padding:30px;min-width:0}
+.bar{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand);border-radius:999px;transition:width .3s}
+.q-step{font-size:.82rem;color:var(--muted);margin-top:16px}
+.quiz h3{font-size:1.4rem;font-weight:700;margin:4px 0 18px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px;text-align:start;cursor:pointer;font-weight:500;transition:border-color .15s,background .15s,color .15s}
+.opt:hover{border-color:var(--brand);background:var(--soft);color:var(--brand-deep)}
+.quiz select{width:100%;padding:14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.link-btn{background:none;border:0;color:var(--muted);cursor:pointer;text-decoration:underline;padding:4px}
+.results{display:grid;gap:12px}
+.res{display:grid;grid-template-columns:68px minmax(0,1fr);gap:14px;align-items:center;padding:14px;border:1.5px solid var(--line);border-radius:14px}
+.res:first-child{border-color:var(--brand);background:var(--soft)}
+.score{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--brand);text-align:center;font-variant-numeric:tabular-nums}
+.score small{display:block;font-family:var(--body);font-weight:400;font-size:.68rem;color:var(--muted)}
+.res h4{font-size:1rem;line-height:1.5}
+.res .why{font-size:.84rem;color:var(--muted)}
+.res .warn{font-size:.84rem;color:var(--warn);font-weight:500}
+.res .go{display:inline-block;padding:2px 0;background:none;font-size:.86rem}
+.res .go:hover{background:none;color:var(--brand);text-decoration:underline}
+.note{font-size:.82rem;color:var(--muted);margin-top:14px}
+@media (max-width:860px){.quiz-grid{grid-template-columns:minmax(0,1fr);gap:28px}.quiz{padding:20px}}
+
+/* Scholarships list */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;cursor:pointer;font-size:.9rem;font-weight:500}
+.chip:hover{border-color:var(--brand)}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.filters select,.filters input[type=search]{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 16px;font-size:.9rem;min-width:0}
+.filters input[type=search]{flex:1 1 200px}
+.count{font-size:.86rem;color:var(--muted);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.empty{grid-column:1/-1;text-align:center;padding:40px 16px;color:var(--muted);border:2px dashed var(--line);border-radius:16px}
+
+/* Jobs */
+.jobs-sec{background:var(--soft)}
+.jobs-sec .eyebrow{background:var(--surface)}
+.jobs-sec .chips{justify-content:center}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:14px;margin-top:24px}
+.job{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 18px;align-items:center;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:border-color .2s,box-shadow .2s}
+.job:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.job .type{grid-column:1/-1;justify-self:start;font-size:.76rem;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);padding:1px 12px;border-radius:999px}
+.job h3{font-size:1.02rem;font-weight:600}
+.job p{font-size:.9rem;color:var(--muted)}
+.job a{font-weight:600;font-size:.88rem;text-decoration:none;white-space:nowrap;padding:8px 16px;border-radius:10px;background:var(--soft);color:var(--brand)}
+.job a:hover{background:var(--brand);color:var(--brand-ink)}
+@media (max-width:560px){.job{grid-template-columns:minmax(0,1fr)}.job a{justify-self:start}}
+
+/* Toolkit */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;background:var(--soft);border-radius:14px;padding:6px;width:fit-content;max-width:100%;margin:0 auto 32px}
+.tab{border:0;background:none;padding:9px 22px;font-weight:600;cursor:pointer;color:var(--muted);border-radius:10px}
+.tab[aria-selected="true"]{color:var(--brand);background:var(--surface);box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.guide h3{font-size:1.15rem;font-weight:700;margin:0 0 14px}
+.guide h3:not(:first-child){margin-top:28px}
+.steps{display:grid;gap:14px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;counter-increment:st}
+.steps li::before{content:counter(st);width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--brand);display:grid;place-items:center;font-family:var(--display);font-size:.95rem;font-weight:700}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--muted);font-size:.93rem}
+.ticks{display:grid;gap:8px}
+.ticks li{padding-inline-start:24px;position:relative;font-size:.95rem}
+.ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:.75em;width:10px;height:10px;border-radius:50%;background:var(--ok)}
+.ticks.no li::before{background:var(--accent);border-radius:3px}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.paper-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--soft);font-size:.88rem;font-weight:600}
+.paper-head button{border:0;background:var(--brand);color:var(--brand-ink);border-radius:8px;padding:5px 14px;cursor:pointer;font-size:.82rem;font-weight:600}
+.paper pre{margin:0;padding:22px;direction:ltr;text-align:left;white-space:pre-wrap;font-family:var(--body);font-size:.9rem;line-height:1.75;max-height:540px;overflow:auto}
+.paper pre mark{background:var(--soft);color:var(--brand-deep);font-weight:500;padding:0 4px;border-radius:4px}
+.qa{display:grid;gap:10px}
+.qa details{background:var(--surface);border-radius:14px;border:1px solid var(--line)}
+.qa details[open]{border-color:var(--brand);box-shadow:var(--shadow)}
+.qa summary{cursor:pointer;padding:15px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";color:var(--brand);font-size:1.3rem;line-height:1.3}
+.qa details[open] summary::after{content:"−"}
+.qa details p{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
+#p-interview .guide{max-width:820px;margin-inline:auto}
+.star{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px}
+.star div{background:var(--soft);border-radius:14px;padding:16px}
+.star b{font-family:var(--display);color:var(--brand);font-size:1.5rem;display:block;line-height:1.3}
+.star strong{display:block;font-size:.95rem}
+.star span{font-size:.85rem;color:var(--muted)}
+
+/* CTA + footer */
+.cta{background:var(--brand);color:var(--brand-ink);border-radius:24px;padding:40px 28px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;inset-inline-end:-60px;top:-80px;width:240px;height:240px;border-radius:50%;background:color-mix(in srgb,var(--brand-ink) 12%,transparent)}
+.cta h2{color:inherit;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;position:relative;z-index:1}
+.cta p{opacity:.85;position:relative;z-index:1}
+.cta .btn{background:var(--brand-ink);color:var(--brand);position:relative;z-index:1}
+footer{background:var(--band);color:var(--band-muted);font-size:.88rem;margin-top:80px}
+footer .wrap{padding-block:40px;display:grid;gap:10px}
+footer b{color:var(--band-fg);font-family:var(--display);font-size:1.15rem}
+
+/* Sections from the page body */
+#check{background:var(--soft)}
+.band-soft{background:var(--bg)}
+.quiz-grid .sec-head{text-align:start;margin:0}
+.how{display:grid;gap:14px;margin-top:28px;counter-reset:s}
+.how li{display:flex;gap:14px;align-items:center;counter-increment:s}
+.how li::before{content:counter(s);font-family:var(--display);font-weight:700;color:var(--brand);background:var(--surface);width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;box-shadow:var(--shadow)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;background:var(--soft)}
+.where{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.93rem;color:var(--brand-deep)}
+.where::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--brand);flex:none}
+.st{font-size:.74rem;font-weight:500;padding:2px 11px;border-radius:999px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
+.st.hot{background:var(--accent-soft);color:var(--accent-ink)}
+.st.soon{background:var(--surface);color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.card-body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card-body h3{font-size:1.1rem;font-weight:700;line-height:1.5}
+.card-body .org{font-size:.8rem;color:var(--muted);direction:ltr;text-align:end;unicode-bidi:plaintext}
+.card-body p{font-size:.92rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.76rem;font-weight:500;padding:2px 11px;border-radius:999px;background:var(--soft);color:var(--brand-deep)}
+.tag.fund{background:var(--ok-soft);color:var(--ok)}
+.req{font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:10px;padding:6px 12px}
+.season{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);display:grid;gap:8px}
+.strip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px}
+.strip i{height:8px;border-radius:3px;background:var(--soft-2)}
+.strip i.on{background:var(--brand)}
+.strip i.now{outline:2px solid var(--accent);outline-offset:1px}
+.strip.vary i{opacity:.5}
+.season-txt{display:flex;justify-content:space-between;gap:12px;font-size:.86rem}
+.season-txt span{color:var(--muted);white-space:nowrap}
+.season-txt b{font-weight:500;text-align:end}
+.card-foot{display:flex;gap:10px;padding:0 18px 18px}
+.card-foot .go{flex:1}
+.card-foot .save{width:auto;height:auto;border-radius:10px;padding:8px 16px;border:1.5px solid var(--line);background:var(--surface);font-size:.9rem;font-weight:500;color:var(--ink)}
+.card-foot .save:hover{border-color:var(--brand);color:var(--brand)}
+.card-foot .save[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.ad{display:grid;place-items:center;align-content:center;gap:2px;text-align:center;min-height:100px;border:1.5px dashed var(--line);border-radius:16px;background:var(--surface);color:var(--muted);font-size:.9rem;padding:14px}
+.ad small{font-size:.68rem;letter-spacing:.08em;background:var(--soft);color:var(--brand-deep);padding:0 10px;border-radius:999px}
+.ad-wide{max-width:970px;margin:40px auto 0}
+.ad-grid{grid-column:1/-1}
+.ad-band{padding-block:0 8px}
+.show-card .mini{display:grid;gap:2px;font-size:.86rem;padding-block:6px;border-top:1px dashed var(--line)}
+.show-card .mini span{color:var(--muted);font-size:.76rem}
+</style>
+</head>
+<body>
+
+<div dir="rtl" lang="ar">
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect class="l-bg" width="40" height="40" rx="12"/><path class="l-fg" d="M20 9 31 15l-11 6L9 15z"/><path class="l-fg" d="M13.5 19.6V25c0 1.9 2.9 3.5 6.5 3.5s6.5-1.6 6.5-3.5v-5.4L20 23.2z"/><circle class="l-dot" cx="31" cy="24" r="2.4"/><rect class="l-fg" x="30.3" y="15" width="1.4" height="8"/></svg>
+      <span>تمكين<small>منصة التمكين للمنح</small></span>
+    </a>
+    <nav class="nav" aria-label="أقسام الموقع">
+      <a href="#home">الرئيسية</a>
+      <a href="#scholarships">المنح الدراسية</a>
+      <a href="#jobs">الوظائف والتدريب</a>
+      <a href="#toolkit">رسالة الحافز والتوصية</a>
+      <a href="#toolkit" data-tab="interview">أسئلة المقابلات</a>
+    </nav>
+    <a class="btn btn-brand" href="#check">افحص أهليتك</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <p class="eyebrow" id="heroBadge">منصة التمكين للمنح</p>
+    <h1>طريقك إلى <em>منحة ممولة</em> ووظيفة في الخارج يبدأ من هنا</h1>
+    <p class="lead">منح دراسية وفرص عمل وتدريب للطلاب والخريجين من كل الوطن العربي، مع فحص ذكي يرشح لك المنحة المناسبة وأدوات لكتابة ملف تقديم قوي.</p>
+    <form class="search" id="heroSearch" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="heroQ" type="search" placeholder="ابحث في المنح الدراسية…" aria-label="ابحث عن منحة">
+      <button class="btn btn-brand" type="submit">ابحث</button>
+    </form>
+    <div class="quick" id="quick"><span>الأكثر بحثاً:</span>
+      <button type="button">ماجستير</button><button type="button">ألمانيا</button><button type="button">تركيا</button><button type="button">اليابان</button><button type="button">السعودية</button>
+    </div>
+    <div class="show" aria-hidden="true">
+      <div class="show-card">
+        <small>حسب المواعيد المعتادة</small>
+        <b id="openTitle">مفتوحة الآن</b>
+        <div id="openRows"></div>
+      </div>
+      <div class="show-card mid">
+        <small>مثال على نتيجة الفحص الذكي</small>
+        <div class="ring"><span>92%</span></div>
+        <b>توافق مع ملفك</b>
+      </div>
+      <div class="show-card">
+        <small>ملف التقديم</small>
+        <b>جاهزيتك</b>
+        <div class="tick-row"><i></i>رسالة الحافز</div>
+        <div class="tick-row"><i></i>رسالة التوصية</div>
+        <div class="tick-row todo"><i></i>التحضير للمقابلة</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-sec">
+  <div class="wrap stats">
+    <div><b id="fAll">0</b><span>منحة في الدليل</span></div>
+    <div><b id="fFull">0</b><span>ممولة بالكامل</span></div>
+    <div><b id="fJobs">0</b><span>برنامج عمل وتدريب</span></div>
+  </div>
+</section>
+
+<!-- إعلان 1: شريط عريض تحت الأرقام. ضع كود الوحدة الإعلانية داخل العنصر بدل النص التجريبي -->
+<div class="wrap ad-band"><aside class="ad ad-wide" aria-label="إعلان"><small>إعلان</small><span>مساحة إعلانية عريضة 970×90</span></aside></div>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">خدمات المنصة</p>
+      <h2>كل ما تحتاجه للتقديم في مكان واحد</h2>
+    </div>
+    <div class="feats">
+      <a class="feat" href="#check"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h3>الفحص الذكي</h3><p>ستة أسئلة تكشف لك أي منحة تناسب بلدك ومستواك وخبرتك.</p><span>ابدأ الفحص ←</span></a>
+      <a class="feat" href="#scholarships"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg></div><h3>منح دراسية</h3><p>منح حكومية وجامعية للبكالوريوس والماجستير والدكتوراه مع شروطها.</p><span>تصفح المنح ←</span></a>
+      <a class="feat" href="#jobs"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div><h3>وظائف وتدريب</h3><p>برامج خريجين في منظمات دولية، تدريب ممول، وعمل حر عن بعد.</p><span>شاهد الفرص ←</span></a>
+      <a class="feat" href="#toolkit"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div><h3>أدوات التقديم</h3><p>قوالب رسالة الحافز والتوصية وأبرز أسئلة المقابلات مع إجاباتها.</p><span>افتح الأدوات ←</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="check">
+  <div class="wrap quiz-grid">
+    <div>
+      <div class="sec-head">
+        <h2>أي منحة تناسبك أنت؟</h2>
+        <p>ستة أسئلة قصيرة، ثم قائمة مرتبة بالمنح الأقرب إلى ملفك مع ما ينقصك لكل واحدة.</p>
+      </div>
+      <ol class="how">
+        <li>تجيب عن أسئلة عن دراستك ولغتك وخبرتك</li>
+        <li>نقارن إجاباتك بشروط كل منحة في الدليل</li>
+        <li>تحصل على ترشيحات مع سبب كل واحد منها</li>
+      </ol>
+    </div>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec band-soft" id="scholarships">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>دليل المنح للطلاب العرب</h2>
+      <p>الشريط البنفسجي في كل بطاقة يبيّن أشهر التقديم المعتادة، والإطار يحدد الشهر الحالي.</p>
+    </div>
+    <div class="filters">
+      <div class="chips" id="lvlChips" role="group" aria-label="المستوى الدراسي"></div>
+      <select id="fRegion" aria-label="الوجهة">
+        <option value="">كل الوجهات</option><option value="europe">أوروبا</option><option value="asia">آسيا</option><option value="america">أمريكا الشمالية</option><option value="arab">الدول العربية</option>
+      </select>
+      <button class="chip" id="fOpen" aria-pressed="false">مفتوحة الآن</button>
+      <button class="chip" id="fNoLang" aria-pressed="false">بدون شهادة لغة إنجليزية</button>
+      <button class="chip" id="fSaved" aria-pressed="false">المحفوظة</button>
+      <input type="search" id="fQ" placeholder="ابحث بالاسم أو الدولة" aria-label="بحث في المنح">
+    </div>
+    <p class="count" id="count"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec jobs-sec" id="jobs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>وظائف وتدريب للشباب العربي</h2>
+      <p>برامج خريجين في منظمات دولية، تدريب بحثي ممول، وبوابات توظيف وعمل حر موثوقة تتجدد شواغرها يومياً.</p>
+    </div>
+    <div class="chips" id="jobChips" role="group" aria-label="نوع الفرصة"></div>
+    <div class="jobs" id="jobList"></div>
+  </div>
+</section>
+
+<section class="sec" id="toolkit">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>اكتب ملفاً يُقرأ حتى آخره</h2>
+      <p>خطوات عملية وقوالب جاهزة للنسخ لرسالة الحافز ورسالة التوصية، وأبرز أسئلة المقابلات مع طريقة الإجابة.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="t-motivation" aria-controls="p-motivation" aria-selected="true">رسالة الحافز</button>
+      <button class="tab" role="tab" id="t-reco" aria-controls="p-reco" aria-selected="false">رسالة التوصية</button>
+      <button class="tab" role="tab" id="t-interview" aria-controls="p-interview" aria-selected="false">أسئلة المقابلات</button>
+    </div>
+
+    <div role="tabpanel" id="p-motivation" aria-labelledby="t-motivation">
+      <div class="two">
+        <div class="guide">
+          <h3>بناء الرسالة فقرة بفقرة</h3>
+          <ol class="steps">
+            <li><div><b>افتتاحية من موقف حقيقي</b><span>ابدأ بلحظة محددة جعلتك تختار هذا المجال. تجنب «منذ طفولتي أحلم».</span></div></li>
+            <li><div><b>خلفيتك الدراسية والعملية</b><span>اذكر إنجازين أو ثلاثة بأرقام: معدل، مشروع، عدد مستفيدين، نتيجة قابلة للقياس.</span></div></li>
+            <li><div><b>لماذا هذا البرنامج بالذات</b><span>سمِّ مقررات أو أساتذة أو مختبرات محددة واربطها بما تريد تعلمه.</span></div></li>
+            <li><div><b>لماذا هذه المنحة</b><span>اقرأ أهداف الجهة المانحة واربط قيمها بما فعلته فعلاً، لا بما تنوي فعله فقط.</span></div></li>
+            <li><div><b>خطتك بعد التخرج</b><span>خطة واضحة على ثلاث إلى خمس سنوات، وأثرها على بلدك أو مجتمعك.</span></div></li>
+          </ol>
+          <h3>افعل</h3>
+          <ul class="ticks">
+            <li>التزم بعدد الكلمات المطلوب، وغالباً صفحة واحدة تكفي.</li>
+            <li>اكتب رسالة مختلفة لكل منحة وغيّر فقرتَي البرنامج والمنحة على الأقل.</li>
+            <li>اطلب من شخصين قراءتها، أحدهما من خارج تخصصك.</li>
+          </ul>
+          <h3>لا تفعل</h3>
+          <ul class="ticks no">
+            <li>لا تكرر سيرتك الذاتية سطراً سطراً.</li>
+            <li>لا تستخدم عبارات عامة مثل «أنا شخص طموح ومجتهد» بلا دليل.</li>
+            <li>لا تنسخ رسالة من الإنترنت، فلجان المنح تكشف النصوص المكررة.</li>
+          </ul>
+        </div>
+        <div class="paper">
+          <div class="paper-head"><span>قالب رسالة حافز بالإنجليزية</span><button type="button" data-copy="tplM">انسخ القالب</button></div>
+<pre id="tplM">Dear Selection Committee,
+
+When <mark>[specific moment or problem you witnessed]</mark>, I understood why <mark>[field]</mark> matters to my community. That experience is the reason I am applying for the <mark>[scholarship name]</mark> to study <mark>[programme]</mark> at <mark>[university]</mark>.
+
+I hold a <mark>[degree]</mark> from <mark>[university]</mark>, where I graduated with <mark>[GPA / rank]</mark>. During <mark>[job, project or volunteering]</mark>, I <mark>[action you took]</mark>, which led to <mark>[measurable result]</mark>.
+
+This programme fits my goals because of <mark>[specific module, professor or lab]</mark>. I want to build skills in <mark>[skill 1]</mark> and <mark>[skill 2]</mark>, which are not available to me at this level at home.
+
+The values of <mark>[scholarship]</mark>, especially <mark>[value, e.g. leadership or public service]</mark>, match what I have already done: <mark>[short proof]</mark>.
+
+After graduating, I plan to <mark>[concrete plan in 3–5 years]</mark> in <mark>[country]</mark>, so that <mark>[who benefits and how]</mark>.
+
+Thank you for considering my application.
+
+Sincerely,
+<mark>[Full name]</mark></pre>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-reco" aria-labelledby="t-reco" hidden>
+      <div class="two">
+        <div class="guide">
+          <h3>كيف تحصل على توصية قوية</h3>
+          <ol class="steps">
+            <li><div><b>اختر من يعرف عملك عن قرب</b><span>أستاذ درّسك أو أشرف على مشروعك، أو مديرك المباشر. المعرفة الحقيقية بك أهم من اللقب الكبير.</span></div></li>
+            <li><div><b>اطلبها قبل الموعد بأربعة إلى ستة أسابيع</b><span>اسأل بوضوح: هل تستطيع كتابة توصية قوية لي؟ وامنحه فرصة للاعتذار.</span></div></li>
+            <li><div><b>جهّز له ملفاً صغيراً</b><span>سيرتك الذاتية، رسالة الحافز، وصف المنحة، الموعد النهائي، وطريقة الإرسال.</span></div></li>
+            <li><div><b>ذكّره بمواقف محددة</b><span>مشروع أنجزته معه، درجة مميزة، مبادرة قدتها. الأمثلة هي ما يجعل التوصية مقنعة.</span></div></li>
+            <li><div><b>تابع بلطف واشكره</b><span>تذكير قبل الموعد بأسبوع، ثم رسالة شكر، ثم أخبره بالنتيجة.</span></div></li>
+          </ol>
+          <h3>ما الذي تبحث عنه اللجنة في التوصية</h3>
+          <ul class="ticks">
+            <li>صفة الكاتب ومدة معرفته بك وفي أي سياق.</li>
+            <li>مقارنتك بزملائك، مثل «من أفضل 5% درّستهم».</li>
+            <li>مثال واحد على الأقل يثبت كل صفة يذكرها.</li>
+            <li>ورقة رسمية وبريد مؤسسي وتوقيع.</li>
+          </ul>
+          <h3>تنبيه</h3>
+          <ul class="ticks no">
+            <li>إذا طلب منك أستاذك كتابة مسودة، اكتبها بصدق ودعه يعدّلها ويرسلها بنفسه. لا ترسل توصية باسم أحد دون علمه.</li>
+          </ul>
+        </div>
+        <div class="paper">
+          <div class="paper-head"><span>قالب رسالة توصية بالإنجليزية</span><button type="button" data-copy="tplR">انسخ القالب</button></div>
+<pre id="tplR">To the Selection Committee,
+
+I am pleased to recommend <mark>[student name]</mark> for the <mark>[scholarship name]</mark>. I am <mark>[title and position]</mark> at <mark>[institution]</mark>, and I have known <mark>[name]</mark> for <mark>[period]</mark> as <mark>[their lecturer / supervisor / manager]</mark>.
+
+In my <mark>[course or team]</mark>, <mark>[name]</mark> ranked among the top <mark>[percentage]</mark> of <mark>[number]</mark> students I have taught. <mark>[He/She/They]</mark> stood out for <mark>[quality 1]</mark>. For example, <mark>[specific project or situation and its result]</mark>.
+
+Beyond academic ability, <mark>[name]</mark> shows <mark>[quality 2, e.g. leadership or integrity]</mark>. <mark>[Second short example]</mark>.
+
+I am confident <mark>[name]</mark> will succeed in <mark>[programme]</mark> and use this opportunity to <mark>[expected contribution]</mark>. I recommend <mark>[him/her/them]</mark> without reservation.
+
+Please contact me if you need further information.
+
+Sincerely,
+<mark>[Name, title, institution]</mark>
+<mark>[Institutional email and phone]</mark></pre>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-interview" aria-labelledby="t-interview" hidden>
+      <div class="guide">
+        <h3>أجب عن أسئلة المواقف بطريقة STAR</h3>
+        <div class="star">
+          <div><b>S</b><strong>الموقف</strong><span>أين ومتى حدث، في جملة أو اثنتين.</span></div>
+          <div><b>T</b><strong>المهمة</strong><span>ما الذي كان مطلوباً منك أنت.</span></div>
+          <div><b>A</b><strong>الفعل</strong><span>ماذا فعلت تحديداً، بصيغة «أنا».</span></div>
+          <div><b>R</b><strong>النتيجة</strong><span>ما الذي تغيّر، بأرقام إن أمكن.</span></div>
+        </div>
+        <h3>أبرز عشرة أسئلة وكيف تجيب عنها</h3>
+        <div class="qa" id="qa"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- إعلان 3: شريط عريض قبل نهاية الصفحة -->
+<div class="wrap ad-band" style="margin-bottom:48px"><aside class="ad ad-wide" style="margin-top:0" aria-label="إعلان"><small>إعلان</small><span>مساحة إعلانية عريضة 970×90</span></aside></div>
+
+<section class="wrap"><div class="cta"><div><h2>لا تعرف من أين تبدأ؟</h2><p>أجب عن ستة أسئلة واحصل على قائمة المنح الأقرب إلى ملفك.</p></div><a class="btn" href="#check">ابدأ الفحص الذكي</a></div></section>
+
+<footer>
+  <div class="wrap">
+    <b>منصة التمكين للمنح</b>
+    <p>مواعيد التقديم المذكورة هي الفترات المعتادة في السنوات السابقة وقد تتغير. راجع الموقع الرسمي لكل منحة قبل التقديم. التقديم على المنح مجاني عبر مواقعها الرسمية، فلا تدفع لأي وسيط.</p>
+    <p>نتيجة الفحص الذكي إرشادية وليست قرار قبول.</p>
+  </div>
+</footer>
+</div>
+
+<script>
+document.documentElement.lang='ar';document.documentElement.dir='rtl';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LV={b:'بكالوريوس',m:'ماجستير',d:'دكتوراه'};
+const MONTHS=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+const NOW=new Date().getMonth()+1, NEXT=NOW%12+1, ALL=[1,2,3,4,5,6,7,8,9,10,11,12];
+const AFRICA=['EG','SD','TN','DZ','MA','LY','MR','SO','DJ','KM'];
+// mo: أشهر التقديم المعتادة (null = يختلف). eng: 'req' شهادة إنجليزية مطلوبة غالباً. exp: سنوات خبرة. fields: null = كل التخصصات
+const S=[
+{id:'chevening',n:'منحة تشيفننغ',org:'Chevening Scholarships',c:'المملكة المتحدة',r:'europe',lv:['m'],full:1,mo:[8,9,10,11],win:'أغسطس – نوفمبر',exp:2,eng:'req',note:'ماجستير لسنة واحدة في أي جامعة بريطانية، لمن لديهم سنتا خبرة عمل ورؤية قيادية.',url:'https://www.chevening.org'},
+{id:'fulbright',n:'برنامج فولبرايت للطلاب الأجانب',org:'Fulbright Foreign Student Program',c:'الولايات المتحدة',r:'america',lv:['m','d'],full:1,mo:null,win:'يختلف حسب بلدك',exp:0,eng:'req',note:'دراسات عليا في الجامعات الأمريكية. التقديم عبر لجنة فولبرايت أو السفارة الأمريكية في بلدك.',url:'https://foreign.fulbrightonline.org'},
+{id:'daad',n:'منح DAAD للدراسات العليا التنموية',org:'DAAD EPOS',c:'ألمانيا',r:'europe',lv:['m'],full:1,mo:[8,9,10],win:'أغسطس – أكتوبر حسب البرنامج',exp:2,eng:'req',note:'برامج ماجستير مرتبطة بالتنمية للمهنيين من الدول النامية، مع سنتَي خبرة على الأقل.',url:'https://www.daad.de/en/'},
+{id:'erasmus',n:'إيراسموس موندوس للماجستير المشترك',org:'Erasmus Mundus Joint Masters',c:'الاتحاد الأوروبي',r:'europe',lv:['m'],full:1,mo:[10,11,12,1],win:'أكتوبر – يناير حسب البرنامج',exp:0,eng:'req',note:'ماجستير تدرسه في بلدين أوروبيين أو أكثر، مع راتب شهري ورسوم وسفر.',url:'https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en'},
+{id:'turkiye',n:'منح تركيا',org:'Türkiye Bursları',c:'تركيا',r:'europe',lv:['b','m','d'],full:1,mo:[1,2],win:'يناير – فبراير',exp:0,eng:'no',note:'لكل المراحل، مع سنة تحضيرية للغة التركية وسكن وراتب شهري وتذكرة سفر.',url:'https://www.turkiyeburslari.gov.tr'},
+{id:'mext',n:'منحة الحكومة اليابانية',org:'MEXT Scholarship',c:'اليابان',r:'asia',lv:['b','m','d'],full:1,mo:[4,5],win:'أبريل – مايو عبر السفارة',exp:0,eng:'no',note:'التقديم عبر سفارة اليابان في بلدك، وتشمل دراسة اللغة اليابانية قبل البدء.',url:'https://www.studyinjapan.go.jp/en/'},
+{id:'csc',n:'منحة الحكومة الصينية',org:'Chinese Government Scholarship',c:'الصين',r:'asia',lv:['b','m','d'],full:1,mo:[12,1,2,3,4],win:'ديسمبر – أبريل',exp:0,eng:'no',note:'لكل المراحل في مئات الجامعات الصينية، ببرامج بالصينية أو الإنجليزية.',url:'https://www.campuschina.org'},
+{id:'gks',n:'منحة كوريا العالمية',org:'Global Korea Scholarship',c:'كوريا الجنوبية',r:'asia',lv:['b','m','d'],full:1,mo:[2,3,9,10],win:'عليا: فبراير – مارس، بكالوريوس: سبتمبر – أكتوبر',exp:0,eng:'no',note:'تشمل سنة لغة كورية ورسوماً وراتباً شهرياً وتذكرة سفر.',url:'https://www.studyinkorea.go.kr'},
+{id:'hungary',n:'منحة ستايبنديوم هنغاريكوم',org:'Stipendium Hungaricum',c:'المجر',r:'europe',lv:['b','m','d'],full:1,mo:[11,12,1],win:'نوفمبر – يناير',exp:0,eng:'req',note:'رسوم وراتب شهري وسكن وتأمين صحي. التقديم عبر الجهة الشريكة في بلدك إن كان ضمن الدول المشمولة.',url:'https://stipendiumhungaricum.hu'},
+{id:'gates',n:'منحة غيتس كامبريدج',org:'Gates Cambridge',c:'المملكة المتحدة',r:'europe',lv:['m','d'],full:1,mo:[9,10,11,12,1],win:'سبتمبر – يناير حسب التخصص',exp:0,eng:'req',note:'دراسات عليا في جامعة كامبريدج للمتفوقين ذوي الالتزام بخدمة مجتمعاتهم.',url:'https://www.gatescambridge.org'},
+{id:'rhodes',n:'منحة رودس',org:'Rhodes Scholarship',c:'المملكة المتحدة',r:'europe',lv:['m','d'],full:1,mo:[6,7,8,9,10],win:'يونيو – أكتوبر حسب الدائرة',exp:0,eng:'req',note:'دراسات عليا في أكسفورد. توجد دوائر خاصة ببلدان عربية ودائرة عالمية، مع حد أعلى للعمر.',url:'https://www.rhodeshouse.ox.ac.uk'},
+{id:'si',n:'منح المعهد السويدي للمهنيين',org:'SI Scholarship for Global Professionals',c:'السويد',r:'europe',lv:['m'],full:1,mo:[2],win:'فبراير',exp:2,eng:'req',note:'ماجستير في السويد لأصحاب الخبرة العملية والقيادية. قائمة الدول المؤهلة تتغير سنوياً.',url:'https://si.se/en/apply/scholarships/'},
+{id:'eiffel',n:'منحة إيفل للتميز',org:'Eiffel Excellence Scholarship',c:'فرنسا',r:'europe',lv:['m','d'],full:0,mo:[10,11,12,1],win:'أكتوبر – يناير عبر الجامعة الفرنسية',exp:0,eng:'req',note:'راتب شهري وسفر وتأمين. الجامعة الفرنسية هي التي ترشحك، فابدأ بمراسلتها مبكراً.',url:'https://www.campusfrance.org'},
+{id:'said',n:'منح مؤسسة سعيد',org:'Saïd Foundation Scholarships',c:'المملكة المتحدة',r:'europe',lv:['m'],full:1,mo:[9,10,11],win:'سبتمبر – نوفمبر',exp:0,eng:'req',only:['SY','PS','LB','JO'],onlyTxt:'لمواطني سوريا وفلسطين ولبنان والأردن',note:'ماجستير في بريطانيا لمن يملكون خطة واضحة لخدمة بلدانهم.',url:'https://www.saidfoundation.org'},
+{id:'pearson',n:'منحة ليستر بيرسون الدولية',org:'Lester B. Pearson Scholarship',c:'كندا',r:'america',lv:['b'],full:1,mo:[11,12,1],win:'ترشيح المدرسة: نوفمبر، التقديم: يناير',exp:0,eng:'req',note:'بكالوريوس لأربع سنوات في جامعة تورنتو. مدرستك الثانوية هي التي ترشحك.',url:'https://future.utoronto.ca/pearson'},
+{id:'knight',n:'منحة نايت هينيسي',org:'Knight-Hennessy Scholars',c:'الولايات المتحدة',r:'america',lv:['m','d'],full:1,mo:[6,7,8,9,10],win:'يونيو – أكتوبر',exp:0,eng:'req',note:'دراسات عليا في أي كلية بجامعة ستانفورد، مع برنامج قيادي.',url:'https://knight-hennessy.stanford.edu'},
+{id:'schwarzman',n:'منحة شوارزمان',org:'Schwarzman Scholars',c:'الصين',r:'asia',lv:['m'],full:1,mo:[4,5,6,7,8,9],win:'أبريل – سبتمبر',exp:0,eng:'req',note:'ماجستير لسنة واحدة في الشؤون العالمية بجامعة تسينغهوا، لمن أعمارهم بين 18 و28.',url:'https://www.schwarzmanscholars.org'},
+{id:'swiss',n:'منح التميز للحكومة السويسرية',org:'Swiss Government Excellence Scholarships',c:'سويسرا',r:'europe',lv:['d'],full:1,mo:[9,10,11,12],win:'سبتمبر – ديسمبر حسب بلدك',exp:0,eng:'req',note:'للدكتوراه وأبحاث ما بعد الدكتوراه. التقديم عبر السفارة السويسرية في بلدك.',url:'https://www.sbfi.admin.ch'},
+{id:'jjwbgsp',n:'منحة اليابان والبنك الدولي',org:'JJ/WBGSP',c:'عدة دول',r:'multi',lv:['m'],full:1,mo:[1,2,3,4,5],win:'نافذتان: يناير – فبراير ومارس – مايو',exp:3,eng:'req',fields:['social','business','health'],note:'ماجستير في مجالات التنمية لمواطني الدول النامية ممن لديهم ثلاث سنوات خبرة تنموية.',url:'https://www.worldbank.org/en/programs/scholarships'},
+{id:'isdb',n:'منح البنك الإسلامي للتنمية',org:'IsDB Scholarship Programme',c:'عدة دول',r:'multi',lv:['b','m','d'],full:1,mo:[1,2,3],win:'الربع الأول من السنة غالباً',exp:0,eng:'no',note:'لمواطني الدول الأعضاء في تخصصات مرتبطة بالتنمية، في جامعات شريكة حول العالم.',url:'https://www.isdb.org/scholarships'},
+{id:'mastercard',n:'برنامج علماء مؤسسة ماستركارد',org:'Mastercard Foundation Scholars',c:'عدة دول',r:'multi',lv:['b','m'],full:1,mo:null,win:'يختلف حسب الجامعة الشريكة',exp:0,eng:'req',only:AFRICA,onlyTxt:'لمواطني الدول الأفريقية',note:'للشباب الأفارقة المتفوقين ذوي الظروف المادية الصعبة، عبر جامعات شريكة.',url:'https://mastercardfdn.org'},
+{id:'kaust',n:'زمالة كاوست',org:'KAUST Fellowship',c:'السعودية',r:'arab',lv:['m','d'],full:1,mo:ALL,win:'مفتوح معظم السنة',exp:0,eng:'req',fields:['stem'],note:'كل طالب مقبول يحصل على رسوم كاملة وراتب وسكن. للعلوم والهندسة فقط.',url:'https://admissions.kaust.edu.sa'},
+{id:'saudi',n:'منح «ادرس في السعودية»',org:'Study in Saudi Arabia',c:'السعودية',r:'arab',lv:['b','m','d'],full:1,mo:null,win:'يختلف حسب الجامعة',exp:0,eng:'no',note:'منصة موحدة للتقديم على منح الجامعات السعودية للطلاب الدوليين.',url:'https://studyinsaudi.moe.gov.sa'},
+{id:'hbku',n:'منح جامعة حمد بن خليفة',org:'HBKU',c:'قطر',r:'arab',lv:['m','d'],full:1,mo:[10,11,12,1,2],win:'أكتوبر – فبراير',exp:0,eng:'req',note:'دراسات عليا في الهندسة والعلوم والقانون والدراسات الإسلامية والصحة والسياسات العامة.',url:'https://www.hbku.edu.qa'},
+{id:'doha',n:'منح معهد الدوحة للدراسات العليا',org:'Doha Institute for Graduate Studies',c:'قطر',r:'arab',lv:['m'],full:1,mo:[10,11,12,1],win:'أكتوبر – يناير',exp:0,eng:'no',fields:['social','business'],note:'ماجستير باللغة العربية في العلوم الاجتماعية والإنسانية والإدارة العامة واقتصاديات التنمية.',url:'https://www.dohainstitute.edu.qa'},
+{id:'khalifa',n:'منح جامعة خليفة للدراسات العليا',org:'Khalifa University',c:'الإمارات',r:'arab',lv:['m','d'],full:1,mo:null,win:'قبل فصلَي الخريف والربيع',exp:0,eng:'req',fields:['stem','health'],note:'منح بحثية للماجستير والدكتوراه في الهندسة والعلوم والطب، مع راتب شهري.',url:'https://www.ku.ac.ae'},
+{id:'tl',n:'برنامج قادة الغد',org:"MEPI Tomorrow's Leaders",c:'لبنان ومصر',r:'arab',lv:['b','m'],full:1,mo:[10,11,12,1],win:'أكتوبر – يناير',exp:0,eng:'req',note:'دراسة في الجامعة الأمريكية في بيروت وجامعات شريكة، لمواطني دول محددة في الشرق الأوسط وشمال أفريقيا.',url:'https://www.aub.edu.lb/mepitl'},
+{id:'clarendon',n:'منحة كلارندون',org:'Clarendon Fund, Oxford',c:'المملكة المتحدة',r:'europe',lv:['m','d'],full:1,mo:[9,10,11,12,1],win:'سبتمبر – يناير مع طلب القبول',exp:0,eng:'req',note:'تغطي الرسوم والمعيشة في أكسفورد. لا يوجد طلب منفصل، فكل من يقدّم للقبول قبل الموعد يدخل المنافسة تلقائياً.',url:'https://www.ox.ac.uk/clarendon'},
+{id:'weidenfeld',n:'منحة وايدنفيلد هوفمان',org:'Weidenfeld-Hoffmann Scholarships',c:'المملكة المتحدة',r:'europe',lv:['m'],full:1,mo:[9,10,11,12,1],win:'سبتمبر – يناير مع طلب القبول',exp:0,eng:'req',note:'ماجستير في أكسفورد مع برنامج قيادي، لمواطني دول محددة منها دول عربية عديدة.',url:'https://www.ox.ac.uk/admissions/graduate/fees-and-funding'},
+{id:'eth',n:'منحة التميز من ETH زيورخ',org:'ETH Excellence Scholarship (ESOP)',c:'سويسرا',r:'europe',lv:['m'],full:1,mo:[11,12],win:'نوفمبر – منتصف ديسمبر',exp:0,eng:'req',fields:['stem'],note:'رسوم ومعيشة لطلاب الماجستير المتفوقين، وتشترط أن تكون من أوائل دفعتك في البكالوريوس.',url:'https://ethz.ch/en/studies/financial/scholarships.html'},
+{id:'helmut',n:'منح هيلموت شميت للسياسات العامة',org:'DAAD Helmut-Schmidt-Programme',c:'ألمانيا',r:'europe',lv:['m'],full:1,mo:[6,7],win:'يونيو – يوليو',exp:0,eng:'req',fields:['social','business'],note:'ماجستير في السياسات العامة والحوكمة الرشيدة في جامعات ألمانية، لخريجي الدول النامية.',url:'https://www.daad.de/en/'},
+{id:'nl',n:'منحة هولندا NL Scholarship',org:'NL Scholarship',c:'هولندا',r:'europe',lv:['b','m'],full:0,mo:[2,3,4,5],win:'فبراير – مايو حسب الجامعة',exp:0,eng:'req',note:'خمسة آلاف يورو تُدفع مرة واحدة في السنة الأولى للطلاب من خارج أوروبا.',url:'https://www.studyinnl.org'},
+{id:'maeci',n:'منح الحكومة الإيطالية',org:'MAECI Grants',c:'إيطاليا',r:'europe',lv:['m','d'],full:0,mo:[4,5,6],win:'أبريل – يونيو',exp:0,eng:'req',note:'راتب شهري وإعفاء من الرسوم في أغلب الجامعات. قائمة الدول المشمولة تُعلن كل سنة.',url:'https://studyinitaly.esteri.it'},
+{id:'romania',n:'منح الحكومة الرومانية',org:'Romanian Government Scholarships',c:'رومانيا',r:'europe',lv:['b','m','d'],full:1,mo:[1,2,3],win:'يناير – مارس',exp:0,eng:'no',note:'لمواطني الدول خارج الاتحاد الأوروبي: دراسة مجانية وراتب شهري وسكن، مع سنة تحضيرية للغة الرومانية.',url:'https://www.mae.ro'},
+{id:'ireland',n:'منحة الحكومة الأيرلندية',org:'GOI International Education Scholarship',c:'أيرلندا',r:'europe',lv:['m','d'],full:0,mo:[1,2,3],win:'يناير – مارس',exp:0,eng:'req',note:'عشرة آلاف يورو وإعفاء كامل من الرسوم لسنة دراسية واحدة.',url:'https://hea.ie'},
+{id:'aauw',n:'زمالة AAUW الدولية للنساء',org:'AAUW International Fellowships',c:'الولايات المتحدة',r:'america',lv:['m','d'],full:0,mo:[8,9,10,11],win:'أغسطس – منتصف نوفمبر',exp:0,eng:'req',onlyTxt:'للنساء فقط',note:'دعم مالي سنوي للنساء من خارج أمريكا للدراسات العليا في الجامعات الأمريكية.',url:'https://www.aauw.org'},
+{id:'rotary',n:'زمالة روتاري للسلام',org:'Rotary Peace Fellowship',c:'عدة دول',r:'multi',lv:['m'],full:1,mo:[2,3,4,5],win:'فبراير – منتصف مايو',exp:3,eng:'req',fields:['social'],note:'ماجستير في دراسات السلام وحل النزاعات في مراكز روتاري حول العالم، لأصحاب الخبرة العملية.',url:'https://www.rotary.org/en/our-programs/peace-fellowships'},
+{id:'akf',n:'منحة مؤسسة الآغا خان الدولية',org:'Aga Khan Foundation ISP',c:'عدة دول',r:'multi',lv:['m','d'],full:0,mo:[1,2,3],win:'يناير – مارس',exp:0,eng:'req',only:['EG','SY'],onlyTxt:'لمواطني مصر وسوريا من الدول العربية',note:'نصفها منحة ونصفها قرض حسن للدراسات العليا، لمن لا يملكون مصدر تمويل آخر.',url:'https://the.akdn'},
+{id:'hkpfs',n:'زمالة هونغ كونغ للدكتوراه',org:'Hong Kong PhD Fellowship Scheme',c:'هونغ كونغ',r:'asia',lv:['d'],full:1,mo:[9,10,11],win:'سبتمبر – أول ديسمبر',exp:0,eng:'req',note:'راتب شهري مرتفع وبدل سفر للمؤتمرات لطلاب الدكتوراه في جامعات هونغ كونغ.',url:'https://cerg1.ugc.edu.hk/hkpfs/'},
+{id:'singa',n:'منحة سنغافورة الدولية للدراسات العليا',org:'SINGA',c:'سنغافورة',r:'asia',lv:['d'],full:1,mo:null,win:'دورتان في السنة',exp:0,eng:'req',fields:['stem','health'],note:'دكتوراه في العلوم والهندسة والطب الحيوي مع رسوم كاملة وراتب شهري.',url:'https://www.a-star.edu.sg'},
+{id:'mbzuai',n:'منح جامعة محمد بن زايد للذكاء الاصطناعي',org:'MBZUAI',c:'الإمارات',r:'arab',lv:['m','d'],full:1,mo:[10,11,12],win:'الخريف وبداية الشتاء',exp:0,eng:'req',fields:['stem'],note:'كل طالب مقبول يحصل على منحة كاملة وراتب وسكن. لتخصصات الذكاء الاصطناعي وعلوم الحاسوب.',url:'https://mbzuai.ac.ae'},
+{id:'kfupm',n:'منح جامعة الملك فهد للبترول والمعادن',org:'KFUPM Graduate Scholarships',c:'السعودية',r:'arab',lv:['m','d'],full:1,mo:null,win:'دورتان في السنة',exp:0,eng:'req',fields:['stem','business'],note:'دراسات عليا في الهندسة والعلوم والإدارة مع راتب شهري وسكن.',url:'https://www.kfupm.edu.sa'},
+{id:'uaeu',n:'منح جامعة الإمارات للدراسات العليا',org:'UAEU Graduate Scholarships',c:'الإمارات',r:'arab',lv:['m','d'],full:1,mo:null,win:'قبل فصلَي الخريف والربيع',exp:0,eng:'req',note:'منح بحثية للماجستير والدكتوراه في جامعة الإمارات العربية المتحدة بمدينة العين.',url:'https://www.uaeu.ac.ae'}
+];
+const JT={grad:'برنامج خريجين',intern:'تدريب ممول',vol:'تطوع',board:'بوابة وظائف',free:'عمل حر عن بعد'};
+const J=[
+{t:'grad',n:'برنامج المهنيين الشباب في الأمم المتحدة',d:'امتحان سنوي لمن هم دون 32 عاماً من الدول المشاركة، ينتهي بوظيفة دائمة في الأمانة العامة.',u:'https://careers.un.org'},
+{t:'grad',n:'برنامج المهنيين الشباب في البنك الدولي',d:'برنامج لحملة الماجستير والدكتوراه مع خبرة عملية، يفتح مرة في السنة.',u:'https://www.worldbank.org/en/about/careers'},
+{t:'grad',n:'برنامج المهنيين الشباب في البنك الإسلامي للتنمية',d:'للخريجين المتميزين من الدول الأعضاء، ومقره جدة.',u:'https://www.isdb.org/careers'},
+{t:'grad',n:'وظائف وبرامج اليونيسف',d:'شواغر في المكاتب الإقليمية والميدانية، منها عمّان والقاهرة وبيروت.',u:'https://www.unicef.org/careers'},
+{t:'intern',n:'برنامج الزيارات البحثية في كاوست',d:'تدريب بحثي من ثلاثة إلى ستة أشهر لطلاب البكالوريوس والماجستير، مع راتب وسكن وتذكرة.',u:'https://vsrp.kaust.edu.sa'},
+{t:'intern',n:'التدريب البحثي في معهد أوكيناوا',d:'تدريب ممول في اليابان من شهرين إلى ستة أشهر، بدورتَي تقديم في السنة.',u:'https://www.oist.jp'},
+{t:'intern',n:'التدريب في الأمم المتحدة',d:'فرص في نيويورك وجنيف والمكاتب الإقليمية لطلاب السنة الأخيرة والخريجين الجدد.',u:'https://careers.un.org'},
+{t:'intern',n:'تدريب الطلاب في Google',d:'تدريب صيفي مدفوع في الهندسة والأعمال، منها فرص في مكاتب المنطقة.',u:'https://careers.google.com/students/'},
+{t:'vol',n:'متطوعو الأمم المتحدة',d:'تطوع ميداني ببدل معيشة، وتطوع عبر الإنترنت من بيتك مع منظمات أممية.',u:'https://www.unv.org'},
+{t:'vol',n:'برامج AIESEC للتبادل',d:'تطوع وتدريب مهني في الخارج عبر فروع المنظمة في الجامعات العربية.',u:'https://aiesec.org'},
+{t:'board',n:'ReliefWeb للوظائف الإنسانية',d:'أكبر قائمة لوظائف المنظمات الإنسانية والإغاثية، مع تصفية حسب البلد.',u:'https://reliefweb.int/jobs'},
+{t:'board',n:'بيت.كوم',d:'شواغر في الخليج وبلاد الشام وشمال أفريقيا مع بناء سيرة ذاتية مجاناً.',u:'https://www.bayt.com'},
+{t:'board',n:'LinkedIn Jobs',d:'فعّل تنبيهات الوظائف باسم المسمى والبلد، وأضف «Remote» للعمل عن بعد.',u:'https://www.linkedin.com/jobs/'},
+{t:'free',n:'مستقل',d:'أكبر منصة عربية للعمل الحر: برمجة، تصميم، ترجمة، كتابة وتسويق.',u:'https://mostaql.com'},
+{t:'free',n:'بعيد',d:'وظائف عن بعد بدوام كامل أو جزئي لدى شركات عربية.',u:'https://baaeed.com'},
+{t:'free',n:'Upwork',d:'سوق عالمي للعمل الحر بالإنجليزية، مناسب بعد بناء معرض أعمال.',u:'https://www.upwork.com'}
+];
+const QA=[
+['عرّفنا بنفسك.','دقيقتان فقط: من أنت الآن، أبرز إنجازين، ولماذا أنت هنا اليوم. لا تسرد سيرتك من الابتدائية.'],
+['لماذا تقدمت لهذه المنحة بالذات؟','اذكر هدفاً من أهداف المنحة المعلنة واربطه بشيء فعلته فعلاً. اللجنة تريد أن ترى أنك قرأت عنها.'],
+['لماذا اخترت هذا التخصص وهذه الجامعة؟','سمِّ مقررات أو أساتذة أو مشاريع بحثية بعينها، وبيّن كيف تسد فجوة في مهاراتك.'],
+['ما خطتك بعد التخرج؟','خطة على مراحل: السنة الأولى، ثم ثلاث سنوات، ثم خمس. كن واقعياً ومحدداً بالمكان والقطاع.'],
+['كيف ستفيد بلدك بما ستتعلمه؟','تحدث عن مشكلة محددة تعرفها جيداً وعن دورك في حلها، لا عن شعارات عامة.'],
+['حدثنا عن موقف قدت فيه فريقاً.','استخدم STAR. ركّز على قرار صعب اتخذته وعلى ما تغيّر بسببه.'],
+['ما أكبر فشل أو تحدٍّ واجهته؟','اختر فشلاً حقيقياً، واصرف معظم الإجابة على ما تعلمته وكيف تصرفت بعده.'],
+['ما نقاط قوتك وضعفك؟','قوة مدعومة بمثال، وضعف حقيقي تعمل على تحسينه بخطوات واضحة. تجنب «أنا أعمل أكثر من اللازم».'],
+['كيف ستتأقلم مع العيش في بلد جديد؟','اذكر تجارب سابقة مع بيئات مختلفة، وخطتك للغة والعلاقات والضغط الدراسي.'],
+['هل لديك أسئلة لنا؟','نعم دائماً. اسأل عن شبكة الخريجين أو عما يميز الطلاب الناجحين في البرنامج.']
+];
+const COUNTRIES=[['IQ','العراق'],['EG','مصر'],['SA','السعودية'],['JO','الأردن'],['SY','سوريا'],['LB','لبنان'],['PS','فلسطين'],['YE','اليمن'],['AE','الإمارات'],['KW','الكويت'],['QA','قطر'],['BH','البحرين'],['OM','عُمان'],['LY','ليبيا'],['TN','تونس'],['DZ','الجزائر'],['MA','المغرب'],['SD','السودان'],['MR','موريتانيا'],['SO','الصومال'],['DJ','جيبوتي'],['KM','جزر القمر']];
+
+/* ---------- season status ---------- */
+function status(s){
+  if(!s.mo)return null;
+  const open=s.mo.includes(NOW);
+  if(open&&s.mo.length<12&&!s.mo.includes(NEXT))return{k:'hot',t:'آخر شهر للتقديم'};
+  if(open)return{k:'ok',t:'مفتوحة الآن'};
+  if(s.mo.includes(NEXT))return{k:'soon',t:'تفتح الشهر القادم'};
+  return null;
+}
+const isOpen=s=>!!s.mo&&s.mo.includes(NOW);
+const stHtml=s=>{const x=status(s);return x?`<span class="st ${x.k==='ok'?'':x.k}">${x.t}</span>`:''};
+const strip=s=>`<div class="strip${s.mo?'':' vary'}" aria-hidden="true">${ALL.map(m=>`<i class="${s.mo&&s.mo.includes(m)?'on':''}${m===NOW?' now':''}"></i>`).join('')}</div>`;
+
+/* ---------- storage ---------- */
+let saved=new Set();
+try{saved=new Set(JSON.parse(localStorage.getItem('tamkeen-saved')||'[]'))}catch(e){}
+const persist=()=>{try{localStorage.setItem('tamkeen-saved',JSON.stringify([...saved]))}catch(e){}};
+const saveTxt=id=>saved.has(id)?'محفوظة':'احفظها';
+
+/* ---------- ads ---------- */
+// ضع كود الوحدة الإعلانية من حسابك الإعلاني داخل هذا العنصر بدل النص التجريبي.
+const AD_GRID='<aside class="ad ad-grid" aria-label="إعلان"><small>إعلان</small><span>مساحة إعلانية داخل قائمة المنح</span></aside>';
+
+/* ---------- card ---------- */
+function card(s){
+  const exp=s.exp===2?'سنتا خبرة عمل على الأقل':s.exp===3?'ثلاث سنوات خبرة على الأقل':'';
+  return `<article class="card">
+  <div class="card-top"><span class="where">${s.c}</span>${stHtml(s)}</div>
+  <div class="card-body">
+    <div><h3>${s.n}</h3><div class="org">${s.org}</div></div>
+    <p>${s.note}</p>
+    <div class="tags"><span class="tag fund">${s.full?'تمويل كامل':'تمويل جزئي'}</span>${s.lv.map(l=>`<span class="tag">${LV[l]}</span>`).join('')}${s.eng==='no'?'<span class="tag">بدون شهادة لغة</span>':''}</div>
+    ${exp||s.onlyTxt?`<div class="req">${[exp,s.onlyTxt].filter(Boolean).join('، ')}</div>`:''}
+    <div class="season">${strip(s)}<div class="season-txt"><span>التقديم عادةً</span><b>${s.win}</b></div></div>
+  </div>
+  <div class="card-foot"><a class="go" href="${s.url}" target="_blank" rel="noopener">الموقع الرسمي</a><button class="save" data-save="${s.id}" aria-pressed="${saved.has(s.id)}">${saveTxt(s.id)}</button></div>
+  </article>`;
+}
+
+/* ---------- scholarships ---------- */
+const F={lv:'',r:'',open:false,nolang:false,saved:false,q:''};
+$('#lvlChips').innerHTML=[['','الكل'],['b','بكالوريوس'],['m','ماجستير'],['d','دكتوراه']].map(([v,t])=>`<button class="chip" data-lv="${v}" aria-pressed="${v===''}">${t}</button>`).join('');
+function renderS(){
+  const q=F.q.trim().toLowerCase();
+  const list=S.filter(s=>(!F.lv||s.lv.includes(F.lv))&&(!F.r||s.r===F.r||s.r==='multi')&&(!F.open||isOpen(s))&&(!F.nolang||s.eng==='no')&&(!F.saved||saved.has(s.id))&&(!q||(s.n+s.org+s.c+s.note+s.lv.map(l=>LV[l]).join(' ')).toLowerCase().includes(q)));
+  $('#count').textContent=`يعرض ${list.length} من ${S.length} منحة`;
+  $('#grid').innerHTML=list.length?list.map((s,i)=>card(s)+(i===5&&list.length>6?AD_GRID:'')).join(''):`<div class="empty">${F.saved&&!saved.size?'لم تحفظ أي منحة بعد. اضغط «احفظها» على أي بطاقة.':'لا توجد منحة تطابق هذا البحث. أزل أحد الفلاتر.'}</div>`;
+}
+$('#lvlChips').onclick=e=>{const b=e.target.closest('[data-lv]');if(!b)return;F.lv=b.dataset.lv;$$('#lvlChips .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderS()};
+$('#fRegion').onchange=e=>{F.r=e.target.value;renderS()};
+$('#fQ').oninput=e=>{F.q=e.target.value;renderS()};
+const tog=(id,k)=>$(id).onclick=e=>{F[k]=!F[k];e.currentTarget.setAttribute('aria-pressed',F[k]);renderS()};
+tog('#fOpen','open');tog('#fNoLang','nolang');tog('#fSaved','saved');
+$('#grid').onclick=e=>{const b=e.target.closest('[data-save]');if(!b)return;const id=b.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);persist();if(F.saved)renderS();else{b.setAttribute('aria-pressed',saved.has(id));b.textContent=saveTxt(id)}};
+
+/* ---------- hero ---------- */
+(function(){
+  const open=S.filter(isOpen).sort((a,b)=>{const ah=status(a).k==='hot',bh=status(b).k==='hot';return (bh-ah)||(a.mo.length-b.mo.length)});
+  const n=open.length,word=n>=3&&n<=10?'منح':'منحة';
+  if(n)$('#heroBadge').textContent=`${n} ${word} تستقبل الطلبات في ${MONTHS[NOW-1]}`;
+  $('#openTitle').textContent='مفتوحة في '+MONTHS[NOW-1];
+  $('#openRows').innerHTML=open.slice(0,3).map(s=>`<div class="mini">${s.n}<span>${s.c}</span></div>`).join('')||'<div class="mini">لا توجد منح مفتوحة هذا الشهر</div>';
+  $('#fAll').textContent=S.length;$('#fFull').textContent=S.filter(s=>s.full).length;$('#fJobs').textContent=J.length;
+  const go=q=>{F.q=q;$('#fQ').value=q;$('#heroQ').value=q;renderS();$('#scholarships').scrollIntoView()};
+  $('#heroSearch').onsubmit=e=>{e.preventDefault();go($('#heroQ').value)};
+  $('#quick').onclick=e=>{if(e.target.tagName==='BUTTON')go(e.target.textContent)};
+})();
+
+/* ---------- jobs ---------- */
+let jt='';
+$('#jobChips').innerHTML=[['','الكل'],...Object.entries(JT)].map(([v,t])=>`<button class="chip" data-jt="${v}" aria-pressed="${v===''}">${t}</button>`).join('');
+function renderJ(){$('#jobList').innerHTML=J.filter(j=>!jt||j.t===jt).map(j=>`<div class="job"><span class="type">${JT[j.t]}</span><div><h3>${j.n}</h3><p>${j.d}</p></div><a href="${j.u}" target="_blank" rel="noopener">صفحة التقديم</a></div>`).join('')}
+$('#jobChips').onclick=e=>{const b=e.target.closest('[data-jt]');if(!b)return;jt=b.dataset.jt;$$('#jobChips .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderJ()};
+
+/* ---------- toolkit ---------- */
+$('#qa').innerHTML=QA.map(([q,a],i)=>`<details${i===0?' open':''}><summary>${q}</summary><p>${a}</p></details>`).join('');
+function showTab(name){$$('.tab').forEach(t=>t.setAttribute('aria-selected',t.id==='t-'+name));$$('[role=tabpanel]').forEach(p=>p.hidden=p.id!=='p-'+name)}
+$$('.tab').forEach(t=>t.onclick=()=>showTab(t.id.slice(2)));
+$$('[data-tab]').forEach(a=>a.addEventListener('click',()=>showTab(a.dataset.tab)));
+$$('[data-copy]').forEach(b=>b.onclick=()=>{
+  const el=document.getElementById(b.dataset.copy),done=()=>{b.textContent='تم النسخ';setTimeout(()=>b.textContent='انسخ القالب',1800)};
+  const fb=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='النص محدد، انسخه'};
+  try{navigator.clipboard.writeText(el.textContent).then(done,fb)}catch(e){fb()}
+});
+
+/* ---------- quiz ---------- */
+const Q=[
+ {k:'country',t:'من أي بلد أنت؟',select:COUNTRIES},
+ {k:'lv',t:'ما المرحلة التي تريد دراستها؟',o:[['b','بكالوريوس'],['m','ماجستير'],['d','دكتوراه']]},
+ {k:'field',t:'ما مجال تخصصك؟',o:[['stem','علوم وهندسة وتقنية'],['health','طب وعلوم صحية'],['social','علوم اجتماعية وإنسانية وقانون'],['business','إدارة واقتصاد'],['arts','فنون ولغات وتربية']]},
+ {k:'eng',t:'ما مستواك في اللغة الإنجليزية؟',o:[['none','لا أملك شهادة لغة'],['mid','IELTS 6 أو ما يعادلها'],['high','IELTS 6.5 فأعلى']]},
+ {k:'exp',t:'كم سنة خبرة عمل لديك بعد التخرج؟',o:[[0,'لا خبرة بعد'],[1,'سنة واحدة'],[2,'سنتان'],[3,'ثلاث سنوات فأكثر']]},
+ {k:'r',t:'أين تفضل أن تدرس؟',o:[['any','لا فرق عندي'],['europe','أوروبا'],['asia','آسيا'],['america','أمريكا الشمالية'],['arab','دولة عربية']]}
+];
+let step=0,A={};
+function match(){
+  return S.map(s=>{
+    if(!s.lv.includes(A.lv))return null;
+    if(s.only&&!s.only.includes(A.country))return null;
+    if(s.fields&&!s.fields.includes(A.field))return null;
+    let sc=52;const why=[],warn=[];
+    why.push('متاحة لمرحلة ال'+LV[A.lv]);
+    if(s.full){sc+=8;why.push('تمويل كامل')}
+    if(s.fields){sc+=14;why.push('مخصصة لمجالك')}
+    if(s.only){sc+=8;why.push('مخصصة لبلدك ومحيطه')}
+    if(A.r==='any')sc+=8;else if(s.r===A.r||s.r==='multi'){sc+=16;why.push('في وجهتك المفضلة')}else sc-=10;
+    if(s.eng==='no'){if(A.eng==='none'){sc+=14;why.push('لا تشترط شهادة إنجليزية للتقديم')}else sc+=4}
+    else if(A.eng==='none'){sc-=24;warn.push('ستحتاج شهادة لغة إنجليزية مثل IELTS')}
+    else if(A.eng==='high'){sc+=10;why.push('مستواك في اللغة يكفي لمعظم الجامعات')}
+    else{sc+=3;warn.push('بعض الجامعات تطلب IELTS 6.5 فأعلى')}
+    if(s.exp){if(A.exp>=s.exp){sc+=10;why.push('خبرتك العملية تستوفي الشرط')}else{sc-=30;warn.push(`تشترط خبرة عمل لا تقل عن ${s.exp===2?'سنتين':'ثلاث سنوات'}`)}}
+    if(isOpen(s))why.push('التقديم مفتوح هذا الشهر عادةً');
+    return {s,sc:Math.max(20,Math.min(97,sc)),why,warn};
+  }).filter(Boolean).sort((a,b)=>b.sc-a.sc).slice(0,6);
+}
+function renderQ(){
+  const el=$('#quiz');
+  if(step>=Q.length){
+    const m=match();
+    el.innerHTML=`<div class="bar"><i style="width:100%"></i></div><p class="q-step">النتيجة</p><h3>${m.length?'أقرب المنح إلى ملفك':'لم نجد منحة مطابقة في الدليل الحالي'}</h3>
+    <div class="results">${m.map(x=>`<div class="res"><div class="score">${x.sc}%<small>توافق</small></div><div><h4>${x.s.n}، ${x.s.c}</h4><div class="why">${x.why.join('، ')}</div>${x.warn.map(w=>`<div class="warn">${w}</div>`).join('')}<a class="go" href="${x.s.url}" target="_blank" rel="noopener">الموقع الرسمي</a></div></div>`).join('')||'<p class="note">غيّر المرحلة أو المجال وأعد الفحص.</p>'}</div>
+    <p class="note">النسبة إرشادية تقارن إجاباتك بالشروط العامة لكل منحة، وليست قرار قبول.</p>
+    <div class="q-foot"><button class="link-btn" id="again">أعد الفحص</button><a class="btn btn-brand" href="#scholarships">تصفح كل المنح</a></div>`;
+    $('#again').onclick=()=>{step=0;A={};renderQ()};return;
+  }
+  const q=Q[step];
+  el.innerHTML=`<div class="bar"><i style="width:${step/Q.length*100}%"></i></div><p class="q-step">سؤال ${step+1} من ${Q.length}</p><h3>${q.t}</h3>
+  ${q.select?`<select id="qSel" aria-label="${q.t}">${q.select.map(([v,t])=>`<option value="${v}"${A[q.k]===v?' selected':''}>${t}</option>`).join('')}</select>`
+  :`<div class="opts">${q.o.map(([v,t],i)=>`<button class="opt" data-i="${i}">${t}</button>`).join('')}</div>`}
+  <div class="q-foot">${step?'<button class="link-btn" id="back">السؤال السابق</button>':'<span></span>'}${q.select?'<button class="btn btn-brand" id="next">التالي</button>':''}</div>`;
+  if(q.select)$('#next').onclick=()=>{A[q.k]=$('#qSel').value;step++;renderQ()};
+  else el.querySelector('.opts').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;A[q.k]=q.o[b.dataset.i][0];step++;renderQ()};
+  if(step)$('#back').onclick=()=>{step--;renderQ()};
+}
+renderS();renderJ();renderQ();
+</script>
+
+</body>
+</html>
