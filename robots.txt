@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bosalaminah.pages.dev/sitemap.xml
