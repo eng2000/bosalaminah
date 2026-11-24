@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net 'sha256-oZgrvrBZXDrc/zQC0eo4FtexABt/84tKqIXJ8DD4uD8=' 'sha256-3q5NNHPO5umFaIYpzF4e2/b319Dlqfmh2W1zXuZCm4o=' 'sha256-W5TWZ+yfZ2E9he1HtlgNbDpQW/akOmC1jgNeGRygNuk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net 'sha256-oZgrvrBZXDrc/zQC0eo4FtexABt/84tKqIXJ8DD4uD8=' 'sha256-OXiCIFFCsQ9TVgD1GY1PjW7wCn0D+owcobv7LkjotM8=' 'sha256-W5TWZ+yfZ2E9he1HtlgNbDpQW/akOmC1jgNeGRygNuk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>/* anti-clickjacking */if(window.top!==window.self){try{window.top.location.replace(window.self.location.href)}catch(e){document.documentElement.style.display='none'}}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1248,7 +1248,7 @@ Sincerely,
     <nav class="ft-col" aria-label="أدلة ومقالات"><h4>أدلة مفيدة</h4>
       <a href="#a-ausbildung">التدريب المهني في ألمانيا</a><a href="#a-lowcost">الدراسة بتكلفة قليلة</a><a href="#a-langtests">اختبارات اللغة</a><a href="#a-visa">تأشيرة الدراسة</a><a href="#a-timeline">خطة 12 شهراً للتقديم</a><a href="#masterclass">ركن الخبراء</a></nav>
     <div class="ft-col"><h4>عن المنصة</h4>
-      <a href="#about">من نحن</a><a href="#articles">كل المقالات</a>
+      <a href="#about">من نحن</a><a href="#articles">كل المقالات</a><a href="https://bosalaminah.pages.dev/scholarships">فهرس كل المنح</a><a href="https://bosalaminah.pages.dev/articles">فهرس المقالات</a><a href="https://bosalaminah.pages.dev/jobs">فهرس الوظائف</a>
       <div class="ft-promise"><b>وعدنا لك</b><span>مجاني بالكامل · روابط رسمية فقط · بياناتك مشفّرة على جهازك</span></div>
     </div>
   </div></div>
@@ -2197,14 +2197,14 @@ function renderDetail(s){
       <div class="d-card glass"><a class="btn btn-blue" href="${s.url}" target="_blank" rel="noopener noreferrer">قدّم من الموقع الرسمي</a>
         <button class="btn btn-ghost" type="button" id="dSave" aria-pressed="${saved.has(s.id)}" style="width:100%;margin-top:10px">${saved.has(s.id)?'محفوظة في مختاراتك':'احفظها في مختاراتك'}</button>
         <button class="btn btn-ghost" type="button" id="dCopy" style="width:100%;margin-top:10px">انسخ رابط المنحة</button>
-        <p class="d-note">التقديم مجاني عبر الموقع الرسمي، فلا تدفع لأي وسيط.</p></div>
+        <p class="d-note">التقديم مجاني عبر الموقع الرسمي، فلا تدفع لأي وسيط. <a href="https://bosalaminah.pages.dev/s/${s.id}" target="_blank" rel="noopener">صفحة المنحة الدائمة</a></p></div>
       <div class="d-card glass"><h2 style="font-size:1.05rem">منح مشابهة</h2><div class="sim">${similar(s).map(x=>`<a href="#m-${x.id}"><b>${x.n}</b><span>${x.c}، ${x.full?'تمويل كامل':'تمويل جزئي'}</span></a>`).join('')||'<span class="meta">لا توجد منح مشابهة في الدليل.</span>'}</div></div>
     </aside>
   </div>`;
   const upd=()=>{const n=(dChecks[s.id]||[]).length;$('#dBar').style.width=(n/ds.length*100)+'%';$('#dCount').textContent=`جاهزيتك ${n} من ${ds.length}`};upd();
   $('#dDocs').onchange=e=>{const k=e.target.dataset.doc;if(!k)return;const a=new Set(dChecks[s.id]||[]);e.target.checked?a.add(k):a.delete(k);dChecks[s.id]=[...a];store.set('tamkeen-docs',dChecks);upd()};
   $('#dSave').onclick=e=>{saved.has(s.id)?saved.delete(s.id):saved.add(s.id);persist();e.currentTarget.setAttribute('aria-pressed',saved.has(s.id));e.currentTarget.textContent=saved.has(s.id)?'محفوظة في مختاراتك':'احفظها في مختاراتك';renderFY();renderS()};
-  $('#dCopy').onclick=e=>{const b=e.currentTarget,u=location.href;try{navigator.clipboard.writeText(u).then(()=>b.textContent='تم نسخ الرابط',()=>b.textContent=u)}catch(_){b.textContent=u}};
+  $('#dCopy').onclick=e=>{const b=e.currentTarget,u='https://bosalaminah.pages.dev/s/'+s.id;try{navigator.clipboard.writeText(u).then(()=>b.textContent='تم نسخ الرابط',()=>b.textContent=u)}catch(_){b.textContent=u}};
   $('#dBack').onclick=closeDetail;
   el.querySelectorAll('[data-guide]').forEach(a=>a.onclick=ev=>{ev.preventDefault();const g=a.dataset.guide;closeDetail(true);showTab(g);setTimeout(()=>goTo('#masterclass'),30)});
 }

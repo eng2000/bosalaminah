@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "include": [
+    "/s/*",
+    "/a/*",
+    "/scholarships",
+    "/scholarships/",
+    "/articles",
+    "/articles/",
+    "/jobs",
+    "/jobs/",
+    "/sitemap.xml"
+  ],
+  "exclude": []
+}
