@@ -18,7 +18,8 @@ const SEC = {
   'X-Frame-Options': 'DENY',
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Strict-Transport-Security': 'max-age=31536000'
 };
 const html = (body, status = 200) => new Response(body, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=600', ...SEC } });
 
@@ -150,6 +151,7 @@ export default {
     if (path === '/jobs') return html(jobsList());
     if (path === '/privacy') return html(privacy());
     if (path === '/sitemap.xml') return sitemap();
+    if (/^\/[sa]\//.test(path)) return notFound();          // malformed scholarship/article links: real 404, not the app
     return env.ASSETS.fetch(request);
   }
 };
