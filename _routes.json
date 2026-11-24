@@ -9,6 +9,8 @@
     "/articles/",
     "/jobs",
     "/jobs/",
+    "/privacy",
+    "/privacy/",
     "/sitemap.xml"
   ],
   "exclude": []

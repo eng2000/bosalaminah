@@ -67,7 +67,7 @@ function page({ title, desc, path, img, body, jsonld, crumbs }) {
 <header class="top"><div class="w"><a class="brand" href="/"><img src="/mark.png" alt="" width="44" height="44">${BRAND}</a>
 <nav class="nav" aria-label="أقسام"><a href="/scholarships">دليل المنح</a><a href="/jobs">الوظائف والتدريب</a><a href="/articles">المقالات</a><a href="/#quiz">اكتشف تخصصك</a></nav></div></header>
 <main class="w">${crumbs ? `<nav class="crumb" aria-label="مسار التنقل">${crumbs.map(([n, p], i) => i < crumbs.length - 1 ? `<a href="${p}">${esc(n)}</a> ‹ ` : esc(n)).join('')}</nav>` : ''}${body}</main>
-<footer><div class="w"><p>${BRAND}: دليل عربي مستقل ومجاني للمنح وفرص العمل. التقديم دائماً من الموقع الرسمي، ولا تدفع لأي وسيط.</p><p><a href="/">الصفحة الرئيسية</a> · <a href="/scholarships">كل المنح</a> · <a href="/articles">المقالات</a> · <a href="/jobs">الوظائف</a></p></div></footer>
+<footer><div class="w"><p>${BRAND}: دليل عربي مستقل ومجاني للمنح وفرص العمل. التقديم دائماً من الموقع الرسمي، ولا تدفع لأي وسيط.</p><p><a href="/">الصفحة الرئيسية</a> · <a href="/privacy">سياسة الخصوصية</a> · <a href="/scholarships">كل المنح</a> · <a href="/articles">المقالات</a> · <a href="/jobs">الوظائف</a></p></div></footer>
 </body></html>`;
 }
 
@@ -125,9 +125,13 @@ ${Object.keys(DATA.JT).filter(t => byT[t]).map(t => `<h2 class="sec">${esc(DATA.
 }
 function sitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/scholarships', '/articles', '/jobs', ...ART.map(a => `/a/${a.id}`), ...S.map(s => `/s/${s.id}`)];
+  const urls = ['/', '/scholarships', '/articles', '/jobs', '/privacy', ...ART.map(a => `/a/${a.id}`), ...S.map(s => `/s/${s.id}`)];
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${abs(u)}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`;
   return new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=3600' } });
+}
+const PRIVACY = "<h1>سياسة الخصوصية</h1>\n<p class=\"pv-date\">آخر تحديث: 24 نوفمبر 2026</p>\n<p>بوصلة مِنح دليل عربي مجاني للمنح الدراسية وفرص العمل والتدريب. توضح هذه الصفحة ما نجمعه من معلومات عند استخدامك للموقع، وكيف نستخدمها.</p>\n<h2>المعلومات التي تحفظها في الموقع</h2>\n<p>عند إنشاء حساب أو حفظ منحة أو إكمال اختبار التخصص، تُحفظ بياناتك في متصفحك على جهازك فقط، ولا تُرسل إلى أي خادم لدينا. بيانات الحساب مشفّرة بكلمة المرور التي تختارها، ولا نستطيع الاطلاع عليها أو استعادتها. يمكنك حذفها في أي وقت بمسح بيانات الموقع من إعدادات متصفحك.</p>\n<h2>ملفات تعريف الارتباط (الكوكيز) والإعلانات</h2>\n<p>قد نعرض إعلانات من Google AdSense لتغطية تكاليف تشغيل الموقع وإبقائه مجانياً.</p>\n<ul>\n<li>تستخدم جهات خارجية، منها Google، ملفات تعريف الارتباط لعرض إعلانات بناءً على زياراتك السابقة لهذا الموقع أو لمواقع أخرى.</li>\n<li>يتيح ملف تعريف الارتباط الإعلاني من Google له ولشركائه عرض إعلانات لك بناءً على زياراتك لهذا الموقع و/أو لمواقع أخرى على الإنترنت.</li>\n<li>يمكنك إيقاف الإعلانات المخصصة من <a href=\"https://adssettings.google.com\" target=\"_blank\" rel=\"noopener\">إعدادات الإعلانات في Google</a>، أو إيقاف ملفات تعريف الارتباط لدى جهات خارجية أخرى من <a href=\"https://www.aboutads.info/choices/\" target=\"_blank\" rel=\"noopener\">www.aboutads.info</a>.</li>\n<li>لمعرفة المزيد عن طريقة استخدام Google للبيانات، راجع <a href=\"https://policies.google.com/technologies/partner-sites\" target=\"_blank\" rel=\"noopener\">كيف تستخدم Google المعلومات من المواقع التي تستخدم خدماتها</a>.</li>\n</ul>\n<h2>الروابط الخارجية</h2>\n<p>نضع روابط إلى المواقع الرسمية للمنح والجهات المانحة وجهات التوظيف. لهذه المواقع سياسات خصوصية خاصة بها، ولسنا مسؤولين عن محتواها أو طريقة تعاملها مع بياناتك. التقديم على أي منحة يتم دائماً من موقعها الرسمي.</p>\n<h2>الاستضافة</h2>\n<p>الموقع مستضاف على Cloudflare Pages، وقد تسجّل Cloudflare بيانات تقنية عامة مثل عنوان IP ونوع المتصفح لأغراض الحماية والأداء.</p>\n<h2>الأطفال</h2>\n<p>الموقع موجّه للطلاب والخريجين، ولا نجمع عن قصد أي معلومات من الأطفال دون 13 عاماً.</p>\n<h2>التعديلات على هذه السياسة</h2>\n<p>قد نحدّث هذه السياسة عند إضافة خدمات جديدة، وسيظهر تاريخ آخر تحديث أعلى الصفحة.</p>";
+function privacy() {
+  return page({ title: 'سياسة الخصوصية', desc: 'سياسة الخصوصية في بوصلة مِنح: البيانات المحفوظة في متصفحك، ملفات تعريف الارتباط وإعلانات Google، والروابط الخارجية.', path: '/privacy', body: `<div class="card" style="margin-top:16px">${PRIVACY}</div>`, crumbs: [['الرئيسية', '/'], ['سياسة الخصوصية', '/privacy']] });
 }
 function notFound() {
   return html(page({ title: 'الصفحة غير موجودة', desc: 'الصفحة غير موجودة.', path: '/', body: `<div class="card" style="margin-top:20px"><h2>الصفحة غير موجودة</h2><p>ربما تغيّر الرابط. <a href="/scholarships">تصفح كل المنح</a> أو <a href="/">ارجع للرئيسية</a>.</p></div>` }), 404);
@@ -144,6 +148,7 @@ export default {
     if (path === '/scholarships') return html(scholarshipList());
     if (path === '/articles') return html(articleList());
     if (path === '/jobs') return html(jobsList());
+    if (path === '/privacy') return html(privacy());
     if (path === '/sitemap.xml') return sitemap();
     return env.ASSETS.fetch(request);
   }
