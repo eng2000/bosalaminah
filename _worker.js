@@ -13,8 +13,11 @@ const file = p => p ? '/' + String(p).split('/').pop() : '';            // flat 
 const abs = p => SITE + p;
 const lvTxt = s => s.lv.map(l => DATA.LV[l]).join('، ');
 
+const PUB = 'ca-pub-2775992173856676', AD_SLOT = '2047637194';
+const AD = `<div class="ad"><span>إعلان</span><ins class="adsbygoogle" style="display:block" data-ad-client="${PUB}" data-ad-slot="${AD_SLOT}" data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
+const PUSH = "document.querySelectorAll('ins.adsbygoogle').forEach(function(){(window.adsbygoogle=window.adsbygoogle||[]).push({})});";  // its sha256 is in the CSP above
 const SEC = {
-  'Content-Security-Policy': "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
+  'Content-Security-Policy': "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com 'sha256-5KOsX+UpkGCPgb/wtZ/FZyq+Y8EeJwRfUIMkoLjlgaA='; frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; connect-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
   'X-Frame-Options': 'DENY',
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -24,6 +27,7 @@ const SEC = {
 const html = (body, status = 200) => new Response(body, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=600', ...SEC } });
 
 const CSS = `
+.ad{margin:22px 0;text-align:center;min-height:0}.ad span{display:none;font-size:12px;color:#6B7785;margin-bottom:6px}.ad:has(ins[data-ad-status=filled]) span{display:block}.ad:has(ins[data-ad-status=unfilled]){display:none}
 :root{--ink:#212529;--muted:#56616D;--line:rgba(16,42,80,.12);--blue:#0A74E0;--teal:#1A827C;--gold:#D4A537;--grad:linear-gradient(135deg,#0A74E0,#1A827C)}
 *{box-sizing:border-box}body{margin:0;font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;background:#F4F7FA;color:var(--ink);line-height:1.9}
 a{color:var(--blue)}h1,h2,h3{font-family:Alexandria,"IBM Plex Sans Arabic",sans-serif;line-height:1.35;margin:0}
@@ -62,6 +66,7 @@ function page({ title, desc, path, img, body, jsonld, crumbs }) {
   return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${abs(path)}">
 <meta property="og:type" content="website"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${abs(path)}"><meta property="og:image" content="${og}"><meta property="og:locale" content="ar_AR"><meta name="twitter:card" content="summary_large_image">
+<meta name="google-adsense-account" content="${PUB}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUB}" crossorigin="anonymous"></script>
 <meta name="theme-color" content="#0A74E0"><link rel="icon" type="image/png" href="/mark-64.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
 <style>${CSS}</style>${ld}</head><body>
@@ -69,7 +74,7 @@ function page({ title, desc, path, img, body, jsonld, crumbs }) {
 <nav class="nav" aria-label="أقسام"><a href="/scholarships">دليل المنح</a><a href="/jobs">الوظائف والتدريب</a><a href="/articles">المقالات</a><a href="/#quiz">اكتشف تخصصك</a></nav></div></header>
 <main class="w">${crumbs ? `<nav class="crumb" aria-label="مسار التنقل">${crumbs.map(([n, p], i) => i < crumbs.length - 1 ? `<a href="${p}">${esc(n)}</a> ‹ ` : esc(n)).join('')}</nav>` : ''}${body}</main>
 <footer><div class="w"><p>${BRAND}: دليل عربي مستقل ومجاني للمنح وفرص العمل. التقديم دائماً من الموقع الرسمي، ولا تدفع لأي وسيط.</p><p><a href="/">الصفحة الرئيسية</a> · <a href="/privacy">سياسة الخصوصية</a> · <a href="/scholarships">كل المنح</a> · <a href="/articles">المقالات</a> · <a href="/jobs">الوظائف</a></p></div></footer>
-</body></html>`;
+${body.includes('adsbygoogle') ? `<script>${PUSH}</script>` : ''}</body></html>`;
 }
 
 function scholarship(s) {
@@ -80,10 +85,12 @@ function scholarship(s) {
 ${logo ? `<img class="logo" src="${logo}" alt="شعار ${esc(s.org)}">` : ''}<div class="tags"><span class="tag">${esc(s.c)}</span><span class="tag">${s.full ? 'تمويل كامل' : 'تمويل جزئي'}</span>${s.eng === 'no' ? '<span class="tag">بدون شهادة لغة للتقديم</span>' : ''}</div>
 <h1>${esc(s.n)}</h1><div class="org">${esc(s.org)}</div></div></section>
 <div class="card"><h2>عن المنحة</h2><p>${esc(s.note)}</p><div class="cta"><a class="btn p" href="${esc(s.url)}" rel="noopener nofollow" target="_blank">قدّم من الموقع الرسمي</a><a class="btn g" href="/#m-${esc(s.id)}">احفظها وتابع ملفاتك في ${BRAND}</a></div></div>
+${AD}
 <div class="card"><h2>معلومات سريعة</h2><div class="facts">${s.facts.map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div></div>
 <div class="card"><h2>شروط الأهلية</h2><ul class="l">${s.reqs.map(r => `<li>${esc(r)}</li>`).join('')}</ul></div>
 <div class="card"><h2>الملفات المطلوبة</h2><ul class="l">${s.docs.map(([t, n]) => `<li><b>${esc(t)}</b>: ${esc(n)}</li>`).join('')}</ul><p class="note">قائمة تقريبية مبنية على المستندات المعتادة. القائمة الرسمية على موقع المنحة. <a href="/#masterclass">أدلة رسالة الحافز والسيرة والتوصية</a></p></div>
 <div class="card"><h2>خطوات التقديم</h2><ol class="l"><li><b>راجع صفحة المنحة الرسمية</b>تأكد من الموعد النهائي لهذه السنة وقائمة الدول المؤهلة.</li><li><b>جهّز المستندات</b>ابدأ بالترجمة والتصديق وشهادة اللغة.</li><li><b>اطلب التوصيات مبكراً</b>قبل الموعد بأربعة إلى ستة أسابيع.</li><li><b>اكتب رسالة الحافز</b>اربط قصتك بأهداف هذه المنحة.</li><li><b>قدّم قبل الموعد بأسبوع</b>المواقع تزدحم في الأيام الأخيرة.</li></ol></div>
+${AD}
 ${sim.length ? `<h2 class="sec">منح مشابهة</h2><div class="list">${sim.map(x => `<a href="/s/${x.id}"><b>${esc(x.n)}</b><span>${esc(x.c)}، ${x.full ? 'تمويل كامل' : 'تمويل جزئي'}</span></a>`).join('')}</div>` : ''}
 <p class="note">المواعيد تقريبية ومبنية على الفترات المعتادة في السنوات السابقة، وقد تتغير.</p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'MonetaryGrant', name: s.n, alternateName: s.org, description: s.note, url: abs(p), sameAs: s.url, funder: { '@type': 'Organization', name: s.org, url: s.url } };
@@ -95,6 +102,7 @@ function scholarshipList() {
   for (const s of S) (byR[s.r] = byR[s.r] || []).push(s);
   const order = ['europe', 'asia', 'america', 'oceania', 'arab', 'africa', 'multi'];
   const body = `<h1 style="margin:16px 0 6px">دليل المنح الدراسية للطلاب العرب</h1><p class="note">${S.length} منحة ممولة كلياً وجزئياً، مرتبة حسب المنطقة. لكل منحة صفحة فيها الشروط والملفات وخطوات التقديم. <a href="/#scholarships">ابحث وفلتر في الدليل التفاعلي</a></p>
+${AD}
 ${order.filter(r => byR[r]).map(r => `<h2 class="sec" id="${r}">${esc(DATA.REG[r] || r)} (${byR[r].length})</h2><div class="list">${byR[r].map(s => `<a href="/s/${s.id}"><b>${esc(s.n)}</b><span>${esc(s.c)}، ${esc(lvTxt(s))}، ${s.full ? 'تمويل كامل' : 'تمويل جزئي'}</span></a>`).join('')}</div>`).join('')}`;
   return page({ title: `دليل المنح الدراسية للطلاب العرب: ${S.length} منحة ممولة`, desc: `${S.length} منحة دراسية ممولة للطلاب العرب في أوروبا وآسيا وأمريكا والخليج: الشروط والملفات ومواعيد التقديم لكل منحة.`, path: '/scholarships', body, crumbs: [['الرئيسية', '/'], ['دليل المنح', '/scholarships']] });
 }
@@ -106,6 +114,7 @@ function article(a) {
   const cta = a.cta[0].startsWith('#a-') ? `/a/${a.cta[0].slice(3)}` : `/${a.cta[0]}`;
   const body = `<section class="hero">${img ? `<img class="bg" src="${img}" alt="">` : ''}<div class="in"><div class="tags"><span class="tag">${esc(a.cat)}</span><span class="tag">${a.min} دقائق قراءة</span></div><h1>${esc(a.t)}</h1></div></section>
 <article class="card art">${fixArtHtml(a.b)}</article>
+${AD}
 <div class="card"><h2>مصادر رسمية للمتابعة</h2><ul class="l">${a.src.map(([t, u]) => `<li><a href="${esc(u.startsWith('#') ? '/' + u : u)}"${u.startsWith('#') ? '' : ' rel="noopener" target="_blank"'}>${esc(t)}</a></li>`).join('')}</ul></div>
 <div class="cta"><a class="btn p" href="${esc(cta)}">${esc(a.cta[1])}</a><a class="btn g" href="/#quiz">اكتشف تخصصك</a></div>
 <h2 class="sec">مقالات أخرى</h2><div class="list">${more.map(x => `<a href="/a/${x.id}"><b>${esc(x.t)}</b><span>${esc(x.cat)}</span></a>`).join('')}</div>`;
@@ -121,6 +130,7 @@ function jobsList() {
   const byT = {};
   for (const j of J) (byT[j.t] = byT[j.t] || []).push(j);
   const body = `<h1 style="margin:16px 0 6px">الوظائف والتدريب وبرامج العمل في الخارج</h1><p class="note">${J.length} فرصة: برامج خريجين، تدريب ممول، برامج هجرة العمل، تطوع، بوابات وظائف، وعمل حر عن بعد.</p>
+${AD}
 ${Object.keys(DATA.JT).filter(t => byT[t]).map(t => `<h2 class="sec">${esc(DATA.JT[t])} (${byT[t].length})</h2><div class="list">${byT[t].map(j => `<a href="${esc(j.u)}" rel="noopener nofollow" target="_blank"><b>${esc(j.n)}</b><span>${esc(j.d)}</span></a>`).join('')}</div>`).join('')}`;
   return page({ title: 'الوظائف والتدريب وبرامج العمل في الخارج للعرب', desc: `${J.length} فرصة عمل وتدريب ممول وبرامج هجرة عمل وبوابات وظائف للشباب العرب.`, path: '/jobs', body, crumbs: [['الرئيسية', '/'], ['الوظائف والتدريب', '/jobs']] });
 }
