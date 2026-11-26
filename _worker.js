@@ -66,7 +66,7 @@ function page({ title, desc, path, img, body, jsonld, crumbs }) {
   const ld = [jsonld, bc].filter(Boolean).map(o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`).join('');
   return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(t)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${abs(path)}">
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${abs(path)}"><meta property="og:image" content="${og}"><meta property="og:locale" content="ar_AR"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${abs(path)}"><meta property="og:image" content="${og}"><meta property="og:locale" content="ar_AR"><meta property="og:site_name" content="${BRAND}"><meta name="twitter:card" content="summary_large_image">
 <meta name="google-adsense-account" content="${PUB}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUB}" crossorigin="anonymous"></script>
 <meta name="theme-color" content="#0A74E0"><link rel="icon" type="image/png" href="/mark-64.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
