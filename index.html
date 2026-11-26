@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com 'sha256-oZgrvrBZXDrc/zQC0eo4FtexABt/84tKqIXJ8DD4uD8=' 'sha256-6kkY9F/Ul7SzHFlaw3UufPMM31mejE8EVdvrAAAd51U=' 'sha256-W5TWZ+yfZ2E9he1HtlgNbDpQW/akOmC1jgNeGRygNuk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; connect-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com 'sha256-oZgrvrBZXDrc/zQC0eo4FtexABt/84tKqIXJ8DD4uD8=' 'sha256-6D5lS/udfd5+dW49tKvJkjr+RMNR+P8ax1JvAoQL/9Q=' 'sha256-W5TWZ+yfZ2E9he1HtlgNbDpQW/akOmC1jgNeGRygNuk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; connect-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="google-adsense-account" content="ca-pub-2775992173856676">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775992173856676" crossorigin="anonymous"></script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -890,10 +890,11 @@ footer.ft .wrap{padding-block:0;display:block}
 <section class="sec" id="featured" data-page="home">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="featTitle">الأبرز هذا الشهر</h2>
-      <p>المنح الأقرب إلى موعد الإغلاق أولاً، مع فرص عمل وتدريب مفتوحة طوال السنة.</p>
+      <h2 id="featTitle">منح مفتوحة الآن لا تحتاج آيلتس</h2>
+      <p id="featSub">باب التقديم مفتوح هذا الشهر، ولا تشترط IELTS أو TOEFL: يكفي غالباً خطاب الدراسة بالإنجليزية MOI أو سنة لغة ضمن المنحة.</p>
     </div>
-    <div class="bento" id="bento"></div>
+    <div class="grid" id="noIelts"></div>
+    <div class="more"><button class="btn btn-blue" id="noIeltsAll" type="button"></button></div>
   </div>
 </section>
 <div data-page="home"><div class="wrap"><div class="ad-slot" data-ad></div></div></div>
@@ -1801,6 +1802,32 @@ X('tju','منحة جامعة تيانجين','Tianjin University Scholarships','
 X('dlut','منحة جامعة داليان للتكنولوجيا','Dalian University of Technology Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','منح الحكومة الصينية عبر الجامعة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب MOI في أغلب البرامج.','https://en.dlut.edu.cn',{eng:'no'}),
 X('cqu','منحة جامعة تشونغتشينغ','Chongqing University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','منح الحكومة الصينية عبر الجامعة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب MOI في أغلب البرامج.','https://english.cqu.edu.cn',{eng:'no'}),
 X('lzu','منحة جامعة لانتشو','Lanzhou University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','منح الحكومة الصينية عبر الجامعة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب MOI في أغلب البرامج.','https://en.lzu.edu.cn',{eng:'no'}),
+X('ucas','منحة جامعة الأكاديمية الصينية للعلوم UCAS','UCAS International Student Scholarship','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','ماجستير ودكتوراه في معاهد الأكاديمية الصينية للعلوم، أكبر مؤسسة بحثية في الصين. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.ucas.ac.cn',{eng:'no'}),
+X('nankai','منحة جامعة نانكاي','Nankai University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','جامعة عريقة في تيانجين قوية في الاقتصاد والكيمياء والرياضيات. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.nankai.edu.cn',{eng:'no'}),
+X('csu','منحة جامعة الوسط الجنوبي','Central South University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في تشانغشا، قوية في الطب والمعادن والهندسة. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.csu.edu.cn',{eng:'no'}),
+X('hnu','منحة جامعة هونان','Hunan University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','من أقدم الجامعات الصينية، قوية في الهندسة المدنية والتصميم. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.hnu.edu.cn',{eng:'no'}),
+X('swjtu','منحة جامعة جنوب غرب جياوتونغ','Southwest Jiaotong University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في تشنغدو، رائدة في هندسة السكك الحديدية والنقل. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.swjtu.edu.cn',{eng:'no'}),
+X('nwpu','منحة جامعة الشمال الغربي للعلوم التطبيقية','Northwestern Polytechnical University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في شيآن، متخصصة في الطيران والفضاء والهندسة البحرية. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.nwpu.edu.cn',{eng:'no'}),
+X('scut','منحة جامعة جنوب الصين للتكنولوجيا','South China University of Technology Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في قوانغتشو، قوية في الهندسة وعلوم الحاسوب. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.scut.edu.cn',{eng:'no'}),
+X('ecnu','منحة جامعة شرق الصين للمعلمين','East China Normal University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في شنغهاي، قوية في التربية واللغة الصينية والعلوم الإنسانية. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.ecnu.edu.cn',{eng:'no'}),
+X('bnu','منحة جامعة بكين للمعلمين','Beijing Normal University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','من أفضل جامعات التربية وعلم النفس في الصين. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.bnu.edu.cn',{eng:'no'}),
+X('ruc','منحة جامعة رنمين الصينية','Renmin University of China Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في بكين، رائدة في الاقتصاد والقانون والعلوم الاجتماعية. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.ruc.edu.cn',{eng:'no'}),
+X('ustc','منحة جامعة العلوم والتكنولوجيا الصينية','USTC Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في خفي، من أقوى الجامعات العلمية في الفيزياء والكيمياء والحاسوب. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.ustc.edu.cn',{eng:'no'}),
+X('cug','منحة جامعة الصين لعلوم الأرض','China University of Geosciences Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في ووهان، متخصصة في الجيولوجيا والنفط والتعدين والبيئة. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.cug.edu.cn',{eng:'no'}),
+X('heu','منحة جامعة هاربين للهندسة','Harbin Engineering University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','قوية في الهندسة البحرية وبناء السفن والطاقة النووية. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.hrbeu.edu.cn',{eng:'no'}),
+X('hhu','منحة جامعة هوهاي','Hohai University Scholarships','الصين','asia','bmd',1,[12,1,2,3],'ديسمبر – مارس','في نانجينغ، رائدة في هندسة المياه والسدود والبيئة. منح الحكومة الصينية CSC عبر الجامعة ومنح الجامعة الخاصة، تغطي الرسوم والسكن وراتباً شهرياً. يُقبل خطاب «الدراسة بالإنجليزية» MOI بدل IELTS في أغلب البرامج.','https://www.hhu.edu.cn',{eng:'no'}),
+X('knu','منح جامعة كيونغبوك الوطنية','Kyungpook National University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','جامعة حكومية كبيرة في دايغو، تعفي الطلاب الدوليين من نسبة من الرسوم حسب المعدل والمستوى اللغوي، وتستقبل طلاب منحة GKS. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.knu.ac.kr'),
+X('jnu','منح جامعة تشونّام الوطنية','Chonnam National University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','جامعة حكومية في غوانغجو، رسومها أقل من جامعات سيول، مع إعفاءات جزئية للطلاب الدوليين. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.jnu.ac.kr'),
+X('cnu','منح جامعة تشونغنام الوطنية','Chungnam National University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','جامعة حكومية في دايجون قرب مراكز الأبحاث التقنية، مع إعفاءات من الرسوم حسب الأداء. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.cnu.ac.kr'),
+X('ajou','منح جامعة آجو','Ajou University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','في سوون، قوية في الهندسة وتقنية المعلومات، مع منح للطلاب الدوليين حسب المعدل. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.ajou.ac.kr'),
+X('hufs','منح جامعة هانكوك للدراسات الأجنبية','Hankuk University of Foreign Studies Scholarships','كوريا الجنوبية','asia','bm',0,null,'يختلف حسب المنحة','أشهر جامعة كورية للغات والعلاقات الدولية، وفيها قسم للغة العربية. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.hufs.ac.kr'),
+X('sogang','منح جامعة سوغانغ','Sogang University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','في سيول، معروفة ببرنامج اللغة الكورية القوي ومنح الطلاب الدوليين المتفوقين. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.sogang.ac.kr'),
+X('dgist','منح معهد دايغو للعلوم والتكنولوجيا DGIST','DGIST Scholarships','كوريا الجنوبية','asia','md',1,[3,4,9,10],'مارس – أبريل، سبتمبر – أكتوبر','معهد بحثي حكومي: الطلاب المقبولون في الدراسات العليا يحصلون عادةً على إعفاء كامل من الرسوم وراتب بحثي شهري. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.dgist.ac.kr'),
+X('kookmin','منح جامعة كوكمين','Kookmin University Scholarships','كوريا الجنوبية','asia','bm',0,null,'يختلف حسب المنحة','في سيول، قوية في التصميم وهندسة السيارات، مع خصومات للطلاب الدوليين. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.kookmin.ac.kr'),
+X('konkuk','منح جامعة كونكوك','Konkuk University Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','في سيول، مع منح قبول وإعفاءات فصلية حسب المعدل والمستوى اللغوي. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.konkuk.ac.kr'),
+X('seoultech','منح جامعة سيول الوطنية للعلوم والتكنولوجيا','SeoulTech International Scholarships','كوريا الجنوبية','asia','bmd',0,null,'يختلف حسب المنحة','جامعة حكومية تقنية في سيول برسوم منخفضة، مع إعفاءات للطلاب الدوليين. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.seoultech.ac.kr'),
+X('kf','زمالة مؤسسة كوريا لتعلم اللغة الكورية','Korea Foundation Fellowship for Korean Language Training','كوريا الجنوبية','asia','md',1,[3,4],'مارس – أبريل غالباً','لطلاب الدراسات العليا والباحثين المهتمين بكوريا: دراسة اللغة الكورية في جامعة كورية مع راتب شهري وتذكرة سفر. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.kf.or.kr'),
+X('aks','منح الأكاديمية الكورية للدراسات الكورية','Academy of Korean Studies Graduate School Scholarships','كوريا الجنوبية','asia','md',1,[3,4,9,10],'مارس – أبريل، سبتمبر – أكتوبر','ماجستير ودكتوراه في الدراسات الكورية والعلوم الإنسانية، مع إعفاء من الرسوم وسكن وراتب شهري. تُطلب عادةً شهادة TOPIK للبرامج بالكورية أو IELTS/TOEFL للبرامج بالإنجليزية.','https://www.aks.ac.kr'),
 X('cityu','منح جامعة سيتي في هونغ كونغ','City University of Hong Kong Scholarships','هونغ كونغ','asia','bmd',0,[10,11,12,1],'أكتوبر – يناير','منح دخول للطلاب الدوليين، وزمالات للدكتوراه.','https://www.cityu.edu.hk'),
 X('ubd','منحة جامعة بروناي دار السلام للبحث','UBD Graduate Research Scholarship','بروناي','asia','md',1,null,V,'منحة كاملة للماجستير البحثي والدكتوراه مع راتب شهري.','https://ubd.edu.bn'),
 X('taylors','منح جامعة تايلورز','Taylor\'s University Scholarships','ماليزيا','asia','bm',0,null,V,'منح تفوق للطلاب الدوليين في جامعة خاصة مصنفة.','https://university.taylors.edu.my'),
@@ -2013,30 +2040,23 @@ const LOGO={"chevening": "chevening.org.png", "daad": "daad.de.png", "mext": "st
   tk.style.setProperty('--tk-dur',(items.length*5)+'s');
 })();
 
-/* ---------- bento ---------- */
+/* ---------- home: open now, no IELTS ---------- */
 (function(){
-  const open=S.filter(prio).sort((a,b)=>closeRank(a)-closeRank(b));
-  const pick=open.length>=3?open:[...open,...S.filter(s=>!prio(s)).sort((a,b)=>closeRank(a)-closeRank(b))];
-  const [s1,s2,s3]=pick;
-  const jobs=[J[0],J[4],J[13]];
-  $('#featTitle').textContent='الأبرز في '+MONTHS[NOW-1];
-  const big=s=>`<article class="tile glass xl ${prio(s)?'prio':''}">${imgHtml(s,`<span class="where">${s.c}</span>${badge(s)}`)}
-    <h3>${s.n}</h3><p>${s.note}</p>
-    <div class="row">${tags(s)}</div>
-    <div class="end" style="flex-direction:column;align-items:stretch">
-      <div>${strip(s)}<div class="season-txt"><span>التقديم عادةً</span><b>${s.win}</b></div></div>
-      <div class="row" style="justify-content:space-between"><a class="btn btn-blue" href="#m-${s.id}">التفاصيل والشروط</a><span class="kind">${s.org}</span></div>
-    </div></article>`;
-  const wide=s=>`<article class="tile glass wide ${prio(s)?'prio':''}">${imgHtml(s,`<span class="where">${s.c}</span>${badge(s)}`)}
-    <h3>${s.n}</h3><p>${s.note}</p>
-    <div class="end"><div class="row">${tags(s)}</div><a class="lnk" href="#m-${s.id}">التفاصيل والشروط</a></div></article>`;
-  const job=j=>`<a class="tile glass jt" href="${j.u}" target="_blank" rel="noopener noreferrer"><span class="kind">${JT[j.t]}</span><h3>${j.n}</h3><p>${j.d}</p><span class="lnk" style="margin-top:auto">صفحة التقديم</span></a>`;
-  const wiz=`<a class="tile glass wiz" href="#match"><span class="kind">أداة المطابقة الفورية</span><span class="big-num">3</span><h3>خطوات تعرف بعدها أي المنح تناسبك</h3><span class="lnk" style="margin-top:auto">ابدأ المطابقة</span></a>`;
-  $('#bento').innerHTML=big(s1)+job(jobs[0])+job(jobs[1])+wide(s2)+wide(s3)+wiz+job(jobs[2]);
+  const noEng=S.filter(s=>s.eng==='no');
+  const open=noEng.filter(prio).sort((a,b)=>closeRank(a)-closeRank(b));
+  const soon=noEng.filter(s=>!prio(s)).sort((a,b)=>closeRank(a)-closeRank(b));
+  const list=(open.length>=9?open:[...open,...soon]).slice(0,9);
+  const nW=n=>n===1?'منحة واحدة':n===2?'منحتان':n<=10?`${n} منح`:`${n} منحة`;
+  $('#featTitle').textContent='منح مفتوحة الآن لا تحتاج آيلتس';
+  if(open.length<list.length)$('#featSub').textContent=`${open.length?nW(open.length)+' مفتوحة الآن، والباقي يفتح خلال أسابيع.':'كلها تفتح خلال أسابيع.'} لا تشترط IELTS أو TOEFL: يكفي غالباً خطاب الدراسة بالإنجليزية MOI أو سنة لغة ضمن المنحة.`;
+  $('#noIelts').innerHTML=list.map(card).join('');
+  const b=$('#noIeltsAll');
+  b.textContent=open.length?`اعرض كل المنح المفتوحة بدون آيلتس (${open.length})`:`اعرض كل المنح بدون آيلتس (${noEng.length})`;
+  b.onclick=()=>{Object.assign(F,{q:'',lv:'',r:'',field:'',fund:'',open:open.length>0,nolang:true,saved:false});$('#hubQ').value='';syncDir();LIM=PAGE;renderS();refreshHub();goTo('#scholarships')};
 })();
 
 /* ---------- directory ---------- */
-const AD_GRID='<aside class="ad ad-grid" aria-label="إعلان"><small>إعلان</small><span>مساحة إعلانية داخل قائمة المنح</span></aside>';
+const AD_GRID='';
 function card(s){
   const exp=s.exp===2?'سنتا خبرة عمل على الأقل':s.exp===3?'ثلاث سنوات خبرة على الأقل':'';
   return `<article class="card glass ${prio(s)?'prio':''}">
@@ -2074,6 +2094,7 @@ $('#fRegion').onchange=e=>{F.r=e.target.value;dirChange()};
 $('#fFund').onchange=e=>{F.fund=e.target.value;dirChange()};
 $('#fQ').oninput=e=>{F.q=e.target.value;$('#hubQ').value=F.q;dirChange()};
 [['#fOpen','open'],['#fNoLang','nolang'],['#fSaved','saved']].forEach(([id,k])=>$(id).onclick=e=>{F[k]=!F[k];e.currentTarget.setAttribute('aria-pressed',F[k]);dirChange()});
+$('#noIelts').onclick=e=>{if(e.target.closest('[data-save]')){$('#grid').onclick(e);renderS()}};
 $('#grid').onclick=e=>{const b=e.target.closest('[data-save]');if(!b)return;const id=b.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);persist();if(F.saved)renderS();else{b.setAttribute('aria-pressed',saved.has(id));b.textContent=saveTxt(id)}renderFY()};
 
 /* ---------- matching ---------- */
